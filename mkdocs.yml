@@ -1,0 +1,36 @@
+site_name: The GLACIER Project
+# site_url: https://mydomain.org/mysite
+theme:
+  name: material
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  language: en 
+  icon:
+    repo: fontawesome/brands/git-alt
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+repo_url: https://github.com/esd-univr/glacier
+repo_name: GLACIER
+plugins:
+  - search
+nav:
+  - Home: index.md
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
