@@ -1,0 +1,43 @@
+.md-header__button.md-logo img {
+    height: 50px;
+    object-fit: contain;
+  }
+  
+.md-banner {
+    font-family: Consolas, "Courier New", Courier, monospace;
+    text-align: center;
+    font-size: 0.95rem;
+    background-color: #e2c15d;
+    color: #fff;
+}
+
+.md-header__title {
+    visibility: hidden;
+}
+
+.md-footer,
+.md-footer-meta,
+.md-footer-meta__inner,
+.md-copyright {
+    background-color: #ffffff !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.md-footer-meta__inner {
+    border-top: 1px solid #ddd !important;
+}
+
+.md-footer,
+.md-footer * {
+    color: #000000 !important;
+}
+
+.md-footer a {
+    text-decoration: underline;
+}
+
+.md-footer a:hover {
+    color: #555555 !important;
+}
+  

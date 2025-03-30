@@ -1,26 +1,23 @@
-site_name: The GLACIER Project
+site_name: "The GLACIER Platform"
 # site_url: https://mydomain.org/mysite
 theme:
   name: material
+  custom_dir: overrides
+  logo: images/logo_long.png
+  favicon: images/favicon-16x16.png
   palette: 
-    # Palette toggle for light mode
     - scheme: default
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
-    # Palette toggle for dark mode
-    - scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+      primary: white
+      accent: amber
   language: en 
   icon:
     repo: fontawesome/brands/git-alt
   features:
+    - navigation.top
     - navigation.instant
     - navigation.instant.prefetch
 repo_url: https://github.com/esd-univr/glacier
-repo_name: GLACIER
+repo_name: esd-univr/glacier
 plugins:
   - search
 nav:
@@ -34,3 +31,7 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+extra_css: 
+  - /stylesheets/extra.css
+copyright: Copyright &copy; 2024, Electronic Systems Design (ESD) Lab @ UniVR
+
