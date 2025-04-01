@@ -1,29 +1,26 @@
 
 
-# **The GLACIER Platform**
+# **The GLACIER Project**
 <!---
 !!! warning 
     The GLACIER platform is under active development. The documentation is a work in progress and may contain errors or incomplete information.
 -->
 ## Overview
 
-The GLACIER platform is an open-source ecosystem for designing, prototyping, monitoring, and optimizing cyber-physical production systems (CPPSs).
+The GLACIER project aims to create an open-source ecosystem for designing, prototyping, monitoring, and optimizing cyber-physical production systems (CPPSs).
 With steadily increasing complexity of manufacturing systems and the integration of software in manufacturing systems, the need for tools supporting the design, prototyping, monitoring, and optimization of production systems has become more important. 
 
-The GLACIER platform provides a simplified environment for developing Digital Twins (DTs) of CPPSs, where software and physical components are seamlessly integrated. 
+The GLACIER ecosystem provides a simplified environment for developing CPPSs Digital Twins (DTs), where software and physical components are seamlessly integrated. 
 Physical components represent the real-world manufacturing machines, sensors, and actuators, while software components represent the software controlling, monitoring, and optimizing the production system. 
 GLACIER supports different levels of fidelity, from simple data-mirroring models to complex predictive simulations. The architecture is designed to be modular, scalable, and extensible.
 This flexibility allows users to start with basic digital representations and gradually enhance them as requirements evolve.
-GLACIER's architecture is built on [Lingua Franca](https://www.lf-lang.org/), a polyglot coordination language for developing distributed programs that can be deployable on the Cloud, the Edge and even on bare-metal architectures. 
+The GLACIER architecture is built on [Lingua Franca](https://www.lf-lang.org/), a polyglot coordination language for developing distributed programs that can be deployable on the Cloud, the Edge and even on bare-metal architectures. 
 At its core, the platform follows a modular architecture with several key components:
 
 - **Machine Data Model**: the interface between the machine and the other components of the platform. Inspired by the OPC UA Information model, it consists of a tree-like structure containing the variables that represent the state of the machine. 
 - **Machine**: physical components of the production system, such as machines, sensors, and actuators. Machines can be represented with different levels of fidelity, from simple delay-based models to physics-based simulations.
 - **Actor**: components that interact with the machines or other actors. Actors can be used to implement control algorithms, monitoring applications, or optimization algorithms. 
 - **Bus**: the communication infrastructure of the production system, where software components and physical components interact. The bus is responsible for routing messages between components and ensuring that the system is in a consistent state.
-
-!!! note
-    The Bus component is optional and can be replaced by direct communication between actors and machines for distributed systems with low latency requirements. 
 
 ### Machine Data Model 
 
@@ -74,11 +71,11 @@ root:
 
 ### Machine 
 
-!!! warning
-    The description of the GlacierMachine should be added here. With the description of the Read, Write, Subscribe and Method invocation.
+<!-- !!! warning
+    The description of the GlacierMachine should be added here. With the description of the Read, Write, Subscribe and Method invocation. -->
 
-In the GLACIER ecosystem, a machine is a physical component of the production system. 
-Each machine is represented as a single entity within the system. 
+In the GLACIER ecosystem, machines are the physical components of the production system.
+Each machine is represented as a single entity, which can be a physical machine, a sensor, or an actuator.
 Interactions with a machine occur through the machine's data model, which represents the current state of the machine.
 This enables decoupling the execution logic of the machine from that of other components, increasing the modularity and flexibility of the platform. To create a new machine, you need to extend the base reactor `GlacierMachine` and implement the necessary methods for the simulation or control of the machine.
 
@@ -102,10 +99,10 @@ reactor ControlQuality extends GlacierMachine{
     =}
 }
 ```
-!!! note 
-    Check if a LF formatter is available for the code snippet above.
+<!-- !!! note 
+    Check if a LF formatter is available for the code snippet above. -->
 
-This example shows a simple implementation of a quality control machine that checks the quality of a product. The machine references the data model presented above, adding the necessary logic implementing the machine behavior. 
+The example above shows a simple implementation of a quality control machine that checks the quality of a product. The machine references the data model presented above, adding the necessary logic implementing the machine behavior.
 The state of the machine is represented by the `total_checks` and `failures` variables, which are initialized at startup. These variables reference the corresponding variables in the data model. Changes to the state of these variables are transparently handled by the machine data model and the `GlacierMachine` base class.
 
 ### Actor
@@ -114,21 +111,62 @@ Actors are software components that interact with machines or other actors.
 They can be used to implement control algorithms, monitoring applications, or optimization algorithms.
 Actors interact with machines or with other actors by reading and writing variables in the machine data model, invoking methods on the machine, or subscribing to changes in the data model's state.
 
-!!! warning
-    Add here a small example of an actor that interacts with a machine.
+<!-- !!! warning
+    Add here a small example of an actor that interacts with a machine. -->
 
 ### Bus
 
-!!! warning
-    Add here a small description of the Bus component.
+Modern manufacturing systems follows the Service-oriented Manufacturing (SoM) paradigm, which organizes the system as a set of *machine services* that can be accessed and used by other entities in the system.
+The implementation of the SoM paradigm is usually based on a centralized message broker that routes messages between the different components of the system. 
+To emulate this behavior, the GLACIER platform includes a bus component that serves as a communication infrastructure for the system.
+The bus component is responsible for routing messages between machines and actors, ensuring that the system is in a consistent state.
 
-### A Simple Example
+!!! note
+    The bus component is optional and can be replaced by direct communication between actors and machines for brokerless architectures.
 
-!!! warning
-    Here we should add a simple example of a production system with few machine, the bus and a simple actor.
+<!-- !!! warning
+    Add here a small description of the Bus component. -->
+
+### Wrapping Up
+
+# Merge the examples above, describing the example
+
+Below is a simple example of a production system that includes a quality control machine and an actor that interacts with the machine. The actor invokes the `check_quality` method to check the quality of a product and prints the result of the check. The machine keeps track of the total number of checks and the number of failed checks.
+
+```python title="ControlQualityActor.lf"
+target Python{
+    fast: True,
+}
+
+import ControlQuality from "ControlQuality.lf"
+
+reactor ControlQualityActor extends GlacierActor{
+
+    reaction(startup){=
+        # send a message to the machine to check the quality of a product
+        msg = get_cm_msg(target="qc", method_name="control_quality/statistics/check_quality", args=["good"])
+        # alternatively, you can specify the arguments as a dictionary
+        # msg = get_cm_msg(target="qc", method_name="control_quality/statistics/check_quality", kwargs={"product_info": "good"})
+    =}
+
+    reaction(channel_in){=
+        print("Received message: ", self.channel_in.value)
+    =}
+
+main reactor{
+    qc_actor = new ControlQualityActor()
+    qc = new ControlQuality(model_path="models/control_quality.yml")
+    bus = new GlacierBus(model_path="models/bus.yml",width=2)
+
+    qc_actor.channel_out, qc.channel_out -> bus.channel_in 
+    bus.channel_out -> qc.channel_in, qc_actor.channel_in 
+}
+```
+
 
 ---
 ## Roadmap
+
 The GLACIER platform is under active development. The following roadmap outlines the key milestones and features that will be added to the platform in the coming months.
 For more information, please follow the [GLACIER GitHub repository](https://github.com/esd-univr/glacier).
 
@@ -143,3 +181,12 @@ timeline
     2026-03-31: Advanced Human-Machine Interaction
 ```
 
+## License 
+
+GLACIER is released under the BSD 2-Clause License.
+
+## Contact
+
+For technical support, collaborations, or further information, contact:
+
+Sebastiano Gaiardelli (sebastiano.gaiardelli@univr.it), Department of Engineering for Innovation Medicine University of Verona, Section of Engineering and Physics, Italy
