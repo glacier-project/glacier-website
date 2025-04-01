@@ -588,23 +588,23 @@ The following example shows a data model for a production machine that checks th
 Each machine is represented as a single entity, which can be a physical machine, a sensor, or an actuator.
 Interactions with a machine occur through the machine's data model, which represents the current state of the machine.
 This enables decoupling the execution logic of the machine from that of other components, increasing the modularity and flexibility of the platform. To create a new machine, you need to extend the base reactor <code>GlacierMachine</code> and implement the necessary methods for the simulation or control of the machine.</p>
-<div class="highlight"><span class="filename">ControlQuality.lf</span><pre><span></span><code><span class="n">reactor</span> <span class="n">ControlQuality</span> <span class="n">extends</span> <span class="n">GlacierMachine</span><span class="p">{</span>
-    <span class="n">state</span> <span class="n">total_checks</span>
-    <span class="n">state</span> <span class="n">failures</span>
+<div class="highlight"><span class="filename">ControlQuality.lf</span><pre><span></span><code><span class="k">reactor</span><span class="w"> </span><span class="nc">ControlQuality</span> <span class="n">extends</span> <span class="n">GlacierMachine</span><span class="p">{</span>
+    <span class="k">state</span><span class="w"> </span><span class="nv">total_checks</span>
+    <span class="k">state</span><span class="w"> </span><span class="nv">failures</span>
 
-    <span class="n">reaction</span><span class="p">(</span><span class="n">startup</span><span class="p">){</span><span class="o">=</span>
+    <span class="k">reaction</span><span class="p">(</span><span class="nb">startup</span><span class="p">){=</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">total_checks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s2">&quot;control_quality/statistics/#checks&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">failures</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s2">&quot;control_quality/statistics/failures&quot;</span><span class="p">)</span>
-    <span class="o">=</span><span class="p">}</span>
+    <span class="p">=}</span>
 
-    <span class="n">method</span> <span class="n">check_quality</span><span class="p">(</span><span class="n">product_info</span><span class="p">){</span><span class="o">=</span>
+    <span class="k">method</span><span class="w"> </span><span class="nv">check_quality</span><span class="p">(</span><span class="n">product_info</span><span class="p">){=</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_total_checks</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">if</span> <span class="n">product_info</span> <span class="o">!=</span> <span class="s2">&quot;good&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">failures</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="kc">True</span>
-    <span class="o">=</span><span class="p">}</span>
+    <span class="p">=}</span>
 <span class="p">}</span>
 </code></pre></div>
 <!-- !!! note 
@@ -633,29 +633,29 @@ The bus component is responsible for routing messages between machines and actor
 
 <h3 id="wrapping-up">Wrapping Up</h3>
 <p>Below is a simple example of a production system that includes a quality control machine and an actor that interacts with the machine. The actor invokes the <code>check_quality</code> method to check the quality of a product and prints the result of the check. The machine keeps track of the total number of checks and the number of failed checks.</p>
-<div class="highlight"><span class="filename">ControlQualityActor.lf</span><pre><span></span><code><span class="n">target</span> <span class="n">Python</span><span class="p">{</span>
+<div class="highlight"><span class="filename">ControlQualityActor.lf</span><pre><span></span><code><span class="k">target</span><span class="w"> </span><span class="nb">Python</span><span class="p">{</span>
     <span class="n">fast</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">ControlQuality</span> <span class="kn">from</span><span class="w"> </span><span class="s2">&quot;ControlQuality.lf&quot;</span>
+<span class="k">import</span> <span class="n">ControlQuality</span> <span class="k">from</span> <span class="s2">&quot;ControlQuality.lf&quot;</span>
 
-<span class="n">reactor</span> <span class="n">ControlQualityActor</span> <span class="n">extends</span> <span class="n">GlacierActor</span><span class="p">{</span>
+<span class="k">reactor</span><span class="w"> </span><span class="nc">ControlQualityActor</span> <span class="n">extends</span> <span class="n">GlacierActor</span><span class="p">{</span>
 
-    <span class="n">reaction</span><span class="p">(</span><span class="n">startup</span><span class="p">){</span><span class="o">=</span>
+    <span class="k">reaction</span><span class="p">(</span><span class="nb">startup</span><span class="p">){=</span>
         <span class="c1"># send a message to the machine to check the quality of a product</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="n">get_cm_msg</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;qc&quot;</span><span class="p">,</span> <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;control_quality/statistics/check_quality&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;good&quot;</span><span class="p">])</span>
         <span class="c1"># alternatively, you can specify the arguments as a dictionary</span>
         <span class="c1"># msg = get_cm_msg(target=&quot;qc&quot;, method_name=&quot;control_quality/statistics/check_quality&quot;, kwargs={&quot;product_info&quot;: &quot;good&quot;})</span>
-    <span class="o">=</span><span class="p">}</span>
+    <span class="p">=}</span>
 
-    <span class="n">reaction</span><span class="p">(</span><span class="n">channel_in</span><span class="p">){</span><span class="o">=</span>
+    <span class="k">reaction</span><span class="p">(</span><span class="n">channel_in</span><span class="p">){=</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received message: &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_in</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-    <span class="o">=</span><span class="p">}</span>
+    <span class="p">=}</span>
 
-<span class="n">main</span> <span class="n">reactor</span><span class="p">{</span>
-    <span class="n">qc_actor</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ControlQualityActor</span><span class="p">()</span>
-    <span class="n">qc</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ControlQuality</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;models/control_quality.yml&quot;</span><span class="p">)</span>
-    <span class="n">bus</span> <span class="o">=</span> <span class="n">new</span> <span class="n">GlacierBus</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;models/bus.yml&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">main</span> <span class="k">reactor</span><span class="p">{</span>
+    <span class="nv">qc_actor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span> <span class="n">ControlQualityActor</span><span class="p">()</span>
+    <span class="nv">qc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span> <span class="n">ControlQuality</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;models/control_quality.yml&quot;</span><span class="p">)</span>
+    <span class="nv">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span> <span class="n">GlacierBus</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">&quot;models/bus.yml&quot;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="n">qc_actor</span><span class="o">.</span><span class="n">channel_out</span><span class="p">,</span> <span class="n">qc</span><span class="o">.</span><span class="n">channel_out</span> <span class="o">-&gt;</span> <span class="n">bus</span><span class="o">.</span><span class="n">channel_in</span> 
     <span class="n">bus</span><span class="o">.</span><span class="n">channel_out</span> <span class="o">-&gt;</span> <span class="n">qc</span><span class="o">.</span><span class="n">channel_in</span><span class="p">,</span> <span class="n">qc_actor</span><span class="o">.</span><span class="n">channel_in</span> 
