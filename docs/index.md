@@ -79,7 +79,7 @@ Each machine is represented as a single entity, which can be a physical machine,
 Interactions with a machine occur through the machine's data model, which represents the current state of the machine.
 This enables decoupling the execution logic of the machine from that of other components, increasing the modularity and flexibility of the platform. To create a new machine, you need to extend the base reactor `GlacierMachine` and implement the necessary methods for the simulation or control of the machine.
 
-```python title="ControlQuality.lf"
+```lf-python title="ControlQuality.lf"
 reactor ControlQuality extends GlacierMachine{
     state total_checks
     state failures
@@ -131,7 +131,7 @@ The bus component is responsible for routing messages between machines and actor
 
 Below is a simple example of a production system that includes a quality control machine and an actor that interacts with the machine. The actor invokes the `check_quality` method to check the quality of a product and prints the result of the check. The machine keeps track of the total number of checks and the number of failed checks.
 
-```python title="ControlQualityActor.lf"
+```lf-python title="ControlQualityActor.lf"
 target Python{
     fast: True,
 }
