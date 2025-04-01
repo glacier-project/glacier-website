@@ -129,8 +129,6 @@ The bus component is responsible for routing messages between machines and actor
 
 ### Wrapping Up
 
-# Merge the examples above, describing the example
-
 Below is a simple example of a production system that includes a quality control machine and an actor that interacts with the machine. The actor invokes the `check_quality` method to check the quality of a product and prints the result of the check. The machine keeps track of the total number of checks and the number of failed checks.
 
 ```python title="ControlQualityActor.lf"
