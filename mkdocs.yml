@@ -1,5 +1,5 @@
 site_name: "The GLACIER Platform"
-# site_url: https://mydomain.org/mysite
+site_url: https://esd-univr.github.io/glacier-website/
 theme:
   name: material
   custom_dir: overrides
