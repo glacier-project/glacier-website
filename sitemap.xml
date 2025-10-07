@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://glacier-project.github.io/glacier-website/</loc>
-         <lastmod>2025-07-24</lastmod>
+         <lastmod>2025-10-07</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/async_method/</loc>
-         <lastmod>2025-07-24</lastmod>
+         <lastmod>2025-10-07</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/composite_method/</loc>
-         <lastmod>2025-07-24</lastmod>
+         <lastmod>2025-10-07</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/method/</loc>
-         <lastmod>2025-07-24</lastmod>
+         <lastmod>2025-10-07</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/read_variable/</loc>
-         <lastmod>2025-07-24</lastmod>
+         <lastmod>2025-10-07</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/subscribe_variable/</loc>
-         <lastmod>2025-07-24</lastmod>
+         <lastmod>2025-10-07</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/write_variable/</loc>
-         <lastmod>2025-07-24</lastmod>
+         <lastmod>2025-10-07</lastmod>
+    </url>
+    <url>
+         <loc>https://glacier-project.github.io/glacier-website/doc_sources/Stock_Market/</loc>
+         <lastmod>2025-10-07</lastmod>
     </url>
 </urlset>
