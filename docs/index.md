@@ -26,7 +26,7 @@ Frost is built on [Lingua Franca](https://www.lf-lang.org/), a polyglot coordina
 This combination makes it ideal for enhancing the reliability of software prototyping and testing.
 At its core, the Frost platform follows a modular architecture with several key components:
 
-- **Data Model**: the interface between the machine and the other components of the platform. Inspired by the OPC UA Information model, it consists of a tree-like structure containing the variables that represent the state of the machine. 
+- **Data Model**: the interface between the machine and the other components of the platform. Inspired by the OPC UA Information model, it consists of a tree-like structure containing the variables that represent the state of the machine, and the methods that represents the exposed functionalities. 
 - **FrostMachine**: physical components of the production system, such as machines, sensors, and actuators. Machines can be represented with different levels of fidelity, from simple delay-based models to physics-based simulations.
 - **Actor**: components that interact with the machines or other actors. Actors can be used to implement control algorithms, monitoring applications, or optimization algorithms. 
 - **FrostBus**: the communication infrastructure of the production system, where software components and physical components interact. The bus is responsible for routing messages between components and ensuring that the system is in a consistent state.
@@ -40,7 +40,7 @@ The machine data model is the interface between the machine and the other compon
 - **ObjectNode**: objects that represent complex components of the machine. Objects can contain other variables or objects.
 - **MethodNode**: _synchronous_ methods that can be invoked to perform actions on the machine. Methods can accept arguments and return values. A synchronous method returns the result of the command only after the command has been successfully executed or has failed. They can be used to represent actions that are executed across multiple time steps.
 - **AsyncMethodNode**: _asynchronous_ methods return immediately. The completion of the command is signaled through an update of one or more variables in the data model. They can be used to represent actions changing the state of the machine (e.g., turning on a motor).
-- **CompositeMethodNode**: _composite_ methods are defined as a sequence of operations performed on the data model. The operations may include the execution of asynchronous methods, reading and writing variables, and waiting for specific conditions on the data model. When a composite method is invoked, it returns immediately, returning an acceptance value. When the method is completed, a message is sent to the caller. 
+- **CompositeMethodNode**: _composite_ methods are defined as a sequence of operations performed on the data model. The operations may include the execution of asynchronous methods, reading and writing variables, and waiting for specific conditions on the data model. When a composite method is invoked, it returns immediately, returning an acceptance value, while when it is completed, an update message is sent to the caller. 
 
 The data model is specified in a YAML file that describes the structure of the tree and the variables that compose the model.
 The following example shows a data model for a production machine that checks the quality of a product.
