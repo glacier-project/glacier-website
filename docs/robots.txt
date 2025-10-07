@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://esd-univr.github.io/glacier-website/sitemap.xml
+Sitemap: https://glacier-project.github.io/glacier-website/sitemap.xml
