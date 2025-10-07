@@ -22,6 +22,8 @@ plugins:
   - search
 nav:
   - Home: index.md
+  - Examples: 
+      - Stock Market: doc_sources/Stock_Market.md
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
