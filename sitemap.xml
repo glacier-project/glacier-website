@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://esd-univr.github.io/glacier-website/</loc>
+         <loc>https://glacier-project.github.io/glacier-website/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://esd-univr.github.io/glacier-website/diagrams/sequence/async_method/</loc>
+         <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/async_method/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://esd-univr.github.io/glacier-website/diagrams/sequence/composite_method/</loc>
+         <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/composite_method/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://esd-univr.github.io/glacier-website/diagrams/sequence/method/</loc>
+         <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/method/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://esd-univr.github.io/glacier-website/diagrams/sequence/read_variable/</loc>
+         <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/read_variable/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://esd-univr.github.io/glacier-website/diagrams/sequence/subscribe_variable/</loc>
+         <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/subscribe_variable/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
     <url>
-         <loc>https://esd-univr.github.io/glacier-website/diagrams/sequence/write_variable/</loc>
+         <loc>https://glacier-project.github.io/glacier-website/diagrams/sequence/write_variable/</loc>
          <lastmod>2025-07-24</lastmod>
     </url>
 </urlset>
