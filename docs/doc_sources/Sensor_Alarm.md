@@ -74,7 +74,7 @@ reactor Sensor extends FrostMachine {
 
 ### The `Alarm` Reactor
 
-The `Alarm` reactor represents the alarm device itself. It has a `ringing` state that is initially `False`. The `Alarm` reactor also has a timer that periodically checks the value of its `ringing` state. If it finds that `ringing` is `True`, it logs a "RINGING!" message to the console and requests the simulation to stop. This demonstrates how a component can react to an event triggered by another component and take a decisive action.
+The `Alarm` reactor represents the alarm device itself. It has a `ringing` state that is initially `False`. The `Alarm` reactor also has a timer that periodically checks the value of its `ringing` state. If it finds that `ringing` is `True`, it logs a "RINGING!" message to the console and requests the simulation to stop. This shows how a component can react to an event triggered by another component and take a decisive action.
 
 ```lf-python
 reactor Alarm extends FrostMachine {
