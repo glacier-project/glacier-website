@@ -41,12 +41,15 @@ reactor Stock_Market extends FrostDataModel {
     timer update_timer(1 sec, 100 msec)
     reaction(update_timer) {=
         // Randomly update stock values, ensuring they don't go below zero
-        if self.action_1.value + random.choice([-1, 1]) > 0:
-            self.action_1.value += random.choice([-1, 1])
-        if self.action_2.value + random.choice([-2, 2]) > 0:
-            self.action_2.value += random.choice([-2, 2])
-        if self.action_3.value + random.choice([-3, 3]) > 0:
-            self.action_3.value += random.choice([-3, 3])
+         change1 = random.choice([-1, 1])
+        if self.action_1.value + change1 > 0:
+            self.action_1.value += change1
+        change2 = random.choice([-2, 2])
+        if self.action_2.value + change2 > 0:
+            self.action_2.value += change2
+        change3 = random.choice([-3, 3])
+        if self.action_3.value + change3 > 0:
+            self.action_3.value += change3
     =}
 }
 ```
