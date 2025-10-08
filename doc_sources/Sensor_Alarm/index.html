@@ -254,24 +254,26 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    Frost Components
+    Frost
     
   </span>
   
@@ -279,10 +281,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Frost Components
+            Frost
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -506,15 +508,8 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
+              
+                
   
   
     
@@ -529,10 +524,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -544,8 +539,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             Examples
           </label>
@@ -713,6 +708,14 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
   </ul>
 </nav>
@@ -842,7 +845,7 @@
 </span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="the-alarm-reactor">The <code>Alarm</code> Reactor</h3>
-<p>The <code>Alarm</code> reactor represents the alarm device itself. It has a <code>ringing</code> state that is initially <code>False</code>. The <code>Alarm</code> reactor also has a timer that periodically checks the value of its <code>ringing</code> state. If it finds that <code>ringing</code> is <code>True</code>, it logs a "RINGING!" message to the console and requests the simulation to stop. This demonstrates how a component can react to an event triggered by another component and take a decisive action.</p>
+<p>The <code>Alarm</code> reactor represents the alarm device itself. It has a <code>ringing</code> state that is initially <code>False</code>. The <code>Alarm</code> reactor also has a timer that periodically checks the value of its <code>ringing</code> state. If it finds that <code>ringing</code> is <code>True</code>, it logs a "RINGING!" message to the console and requests the simulation to stop. This shows how a component can react to an event triggered by another component and take a decisive action.</p>
 <div class="language-lf-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">reactor</span><span class="w"> </span><span class="nc">Alarm</span> <span class="n">extends</span> <span class="n">FrostMachine</span> <span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">state</span><span class="w"> </span><span class="nv">ringing</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
