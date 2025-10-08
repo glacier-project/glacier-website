@@ -560,15 +560,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#code-snippet" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Snippet
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -760,15 +751,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#code-snippet" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Snippet
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -811,18 +793,6 @@
 <p><strong>React to External Events</strong>: Handle incoming messages to react to commands or data from other parts of the system. This allows a <code>FrostMachine</code> to be controlled or influenced by external actors or other machines, making it a dynamic participant in the overall system.</p>
 </li>
 </ul>
-<h3 id="code-snippet">Code Snippet</h3>
-<p>The definition of the <code>FrostMachine</code> reactor is straightforward, as it primarily relies on inheritance to acquire its functionality.</p>
-<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">reactor</span><span class="w"> </span><span class="nc">FrostMachine</span><span class="p">(</span><span class="n">_update_step</span> <span class="o">=</span> <span class="mi">1000</span><span class="w"> </span><span class="nb">msec</span><span class="p">)</span> <span class="n">extends</span> <span class="n">FrostDataModel</span><span class="p">,</span> <span class="n">FrostReactor</span> <span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&#39;&#39;&#39;Reactor implementing the common logic for Frost machines.</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="sd">    Args</span><span class="p">:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">        _update_step (int)</span><span class="p">:</span><span class="sd"> The </span><span class="kt">time</span><span class="sd"> step for periodic updates in the machine.</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sd">    &#39;&#39;&#39;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">state</span><span class="w"> </span><span class="nv">update_step</span> <span class="o">=</span> <span class="n">_update_step</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
-</span></code></pre></div>
 
 
 
