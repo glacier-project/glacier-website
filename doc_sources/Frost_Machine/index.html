@@ -552,6 +552,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-you-can-do-with-a-frostmachine" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You Can Do with a FrostMachine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#code-snippet" class="md-nav__link">
     <span class="md-ellipsis">
       Code Snippet
@@ -743,6 +752,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-you-can-do-with-a-frostmachine" class="md-nav__link">
+    <span class="md-ellipsis">
+      What You Can Do with a FrostMachine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#code-snippet" class="md-nav__link">
     <span class="md-ellipsis">
       Code Snippet
@@ -768,11 +786,30 @@
 
 
 <h1 id="frostmachine-reactor"><code>FrostMachine</code> Reactor</h1>
-<p>The <code>FrostMachine</code> reactor is a composite component that combines the functionalities of <code>FrostDataModel</code> and <code>FrostReactor</code>. It is designed to serve as a base for creating "machine" actors in the Frost ecosystem—components that have both a data model and the ability to communicate over the <code>FrostBus</code>.</p>
+<p>The <code>FrostMachine</code> reactor is a composite component that combines the functionalities of <code>FrostDataModel</code> and <code>FrostReactor</code>. It is designed to serve as a base for creating "machine" actors in the Frost ecosystem—components that represent the physical or logical parts of a cyber-physical system, complete with their own state (data model) and communication capabilities.</p>
 <h3 id="core-functionalities">Core Functionalities</h3>
 <ul>
 <li><strong>Inheritance</strong>: It inherits from both <code>FrostDataModel</code> and <code>FrostReactor</code>, giving it the combined capabilities of both. This means it can manage a data model, connect to the <code>FrostBus</code>, and handle messages according to the Frost protocol.</li>
 <li><strong>Update Step</strong>: It introduces an <code>update_step</code> parameter, which can be used to define a time step for periodic updates within the machine. This is useful for simulations or for components that need to perform actions at regular intervals.</li>
+</ul>
+<h3 id="what-you-can-do-with-a-frostmachine">What You Can Do with a <code>FrostMachine</code></h3>
+<p>A <code>FrostMachine</code> is the primary building block for creating digital twins or simulated components in the Frost ecosystem. By extending this reactor, you can:</p>
+<ul>
+<li>
+<p><strong>Model System Components</strong>: Represent any physical or logical part of your system, such as a machine, sensor, or software service. The component's state is defined in its data model, including parameters, sensor readings, and operational status.</p>
+</li>
+<li>
+<p><strong>Implement Dynamic Behavior</strong>: Use timers and reactions to simulate the component's behavior over time. This allows you to model time-based processes, state transitions, and the core logic of the component's operation.</p>
+</li>
+<li>
+<p><strong>Expose behavior</strong>: Expose methods through the data model that other components can invoke. By implementing these methods as callbacks, you create a clear and well-defined interface for your machine, enabling other parts of the system to interact with it.</p>
+</li>
+<li>
+<p><strong>Orchestrate Complex Interactions</strong>: A <code>FrostMachine</code> can act as a client to other components. It can send messages to read or write variables in other data models or invoke their methods, allowing for complex, system-level workflows and interactions.</p>
+</li>
+<li>
+<p><strong>React to External Events</strong>: Handle incoming messages to react to commands or data from other parts of the system. This allows a <code>FrostMachine</code> to be controlled or influenced by external actors or other machines, making it a dynamic participant in the overall system.</p>
+</li>
 </ul>
 <h3 id="code-snippet">Code Snippet</h3>
 <p>The definition of the <code>FrostMachine</code> reactor is straightforward, as it primarily relies on inheritance to acquire its functionality.</p>
