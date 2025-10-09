@@ -14,7 +14,7 @@ The `MessageFilter` is a specialized reactor designed to process and route incom
 
 This reaction is the core of the `MessageFilter`. It iterates through incoming messages, applies the filter callbacks, and routes each message to the appropriate output port.
 
-```lf
+```lf-Python
 reaction (messages) -> requests, responses, errors, discarded_messages {=
     for message in messages.value:
         if not isinstance(message[1], self._message_type):
@@ -32,7 +32,7 @@ reaction (messages) -> requests, responses, errors, discarded_messages {=
 
 This method checks if a message should be processed by applying a series of user-defined filter callbacks.
 
-```lf
+```lf-Python
 method _should_process_message(message) {=
     for callback in self._filter_callbacks:
         if not callback(message):
