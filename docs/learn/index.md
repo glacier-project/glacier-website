@@ -7,6 +7,14 @@ exists because it is used to teach — manufacturing systems, cyber-physical
 systems, control software engineering. This section is where that material is
 published as it becomes publicly available.
 
+!!! tip "Attending the FDL 2026 PhD School?"
+
+    The GLACIER hands-on session has its own preparation page: what to install,
+    what to download, and how to check that your laptop is ready before the
+    session starts.
+
+    [:octicons-arrow-right-24: Prepare for FDL 2026](events/fdl-2026.md)
+
 !!! info "The catalogue is being populated"
 
     Several of the categories below have no public entries yet. Rather than
@@ -40,6 +48,15 @@ published as it becomes publicly available.
 
     [:octicons-arrow-right-24: Lectures](lectures.md)
 
+-   :material-calendar-star: __Events__
+
+    ---
+
+    Preparation pages for sessions taught in person at conferences and summer
+    schools.
+
+    [:octicons-arrow-right-24: Events](events/index.md)
+
 </div>
 
 ## Start here instead
@@ -66,7 +83,9 @@ points at it.
 
 Adding one means editing a single Markdown file — `docs/learn/tutorials.md`,
 `docs/learn/labs.md` or `docs/learn/lectures.md` — and adding a section
-following the pattern already on the page. No frontend code is involved.
+following the pattern already on the page. No frontend code is involved. An
+event preparation page is the one exception: it is a new file under
+`docs/learn/events/`, plus one line in `nav:`.
 
 The only rule is the one stated above: **an entry must point at something that
 exists and is publicly reachable.** A resource that is planned, or that is

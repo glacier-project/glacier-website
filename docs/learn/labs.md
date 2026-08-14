@@ -4,13 +4,19 @@ Hands-on sessions and exercise sets, usually run alongside a taught course.
 
 ## Available now
 
-No lab or exercise set has been published publicly yet.
+No lab or exercise set has been published on this site yet as standalone
+material.
+
+The closest thing is the workshop package for the GLACIER hands-on session at
+the [FDL 2026 PhD School](events/fdl-2026.md): five exercises, a devcontainer
+that supplies the toolchain, and public downloads. It is written for that
+session rather than for self-study, but it is openly available.
 
 GLACIER tools are used in teaching at the Department of Engineering for
 Innovation Medicine of the University of Verona, and material developed for
 those sessions will be catalogued here as it is released for public use.
 
-Meanwhile, the closest thing to a set of exercises is
+Also useful as exercise material is
 [frost-playground](https://github.com/glacier-project/frost-playground), whose
 examples are small enough to modify and extend, and which ships a devcontainer
 so a session can start without a local toolchain install.

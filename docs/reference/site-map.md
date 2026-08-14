@@ -29,6 +29,8 @@ Every public page on this website, in navigation order.
     - [Tutorials](../learn/tutorials.md)
     - [Labs and exercises](../learn/labs.md)
     - [Lectures](../learn/lectures.md)
+    - [Events](../learn/events/index.md)
+        - [FDL 2026 PhD School](../learn/events/fdl-2026.md)
 - [Reference](index.md)
     - [Repositories](repositories.md)
     - [Versions](versions.md)

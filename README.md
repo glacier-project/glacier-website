@@ -27,6 +27,7 @@ when it exists, so the commands work whether or not the venv is activated.
 | Add overview content | `docs/overview/` |
 | Document Frost | `docs/frost/` |
 | Add a tutorial, lab or lecture | `docs/learn/tutorials.md`, `labs.md`, `lectures.md` |
+| Add an event preparation page | `docs/learn/events/` (new file, plus `nav:`) |
 | Add repository/version reference | `docs/reference/` |
 | Add an image | `docs/assets/` |
 | Add a diagram | `docs/assets/diagrams/` (hand-written SVG) |
@@ -44,7 +45,7 @@ docs/               Public website content, one Markdown file per page.
   index.md            Homepage.
   overview/           What GLACIER is, its architecture and ecosystem.
   frost/              Frost technical documentation.
-  learn/              Tutorials, labs and lectures.
+  learn/              Tutorials, labs, lectures and event pages.
   reference/          Repositories, versions, generated site map.
   project/            About the project.
   assets/             Images, diagrams (SVG) and the favicon.
@@ -77,6 +78,13 @@ shred it, silently.
 `docs/learn/labs.md` or `docs/learn/lectures.md` and add a section following the
 pattern already there. No new file. Only link to resources that exist and are
 publicly reachable.
+
+**Add an event page.** Sessions taught in person get one page each under
+`docs/learn/events/`, covering logistics and preparation only: what the session
+is, what to install, what to download, how to verify it and how to check the
+machine is ready. Copy `docs/learn/events/fdl-2026.md`, add it to the `Events`
+section of `nav:` and to the list on `docs/learn/events/index.md`. Reusable
+technical material stays in `docs/learn/` and `docs/frost/`.
 
 **Rename or move a page.** That breaks its URL — add an entry to
 `redirect_maps` in `mkdocs.yml`.

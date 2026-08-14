@@ -248,6 +248,27 @@
   }
 }
 
+/* --- Event pages -----------------------------------------------------------
+   Two small adjustments so an event landing page (docs/learn/events/) can wear
+   the home page's hero inside the ordinary documentation layout. */
+
+/* The hero was drawn for a page that ends with it. Where content continues
+   underneath, its bottom spacing reads as a gap. */
+.glacier-hero--page {
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.2rem;
+}
+
+.glacier-hero--page > p:last-child {
+  margin-bottom: 0.4rem;
+}
+
+/* A key/value metadata table has no column titles to show, so drop the empty
+   header row rather than leave a blank band above the first pair. */
+.md-typeset .glacier-meta table:not([class]) thead {
+  display: none;
+}
+
 /* --- Cards -----------------------------------------------------------------
    Material's built-in `grid cards`, on the design system's card surface. */
 
