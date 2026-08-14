@@ -1,0 +1,21 @@
+{#-
+  Copy of Material's partials/source.html with one attribute removed.
+
+  The original carries `data-md-component="source"`, which makes Material call
+  api.github.com on every page load to show the repository's star and fork
+  counts. That is an unconditional third-party request -- it fires before the
+  cookie dialogue is answered -- in exchange for two numbers nobody needs on a
+  documentation site.
+
+  Without the attribute the link and icon render exactly as before and no
+  request is made. Re-check this file if Material's own version changes.
+-#}
+<a href="{{ config.repo_url }}" title="{{ lang.t('source') }}" class="md-source">
+  <div class="md-source__icon md-icon">
+    {% set icon = config.theme.icon.repo or "fontawesome/brands/git-alt" %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  </div>
+  <div class="md-source__repository">
+    {{ config.repo_name }}
+  </div>
+</a>

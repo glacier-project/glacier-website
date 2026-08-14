@@ -3,7 +3,7 @@
 #   Navigation ... the `nav:` block below
 #   Branding ..... docs/stylesheets/extra.css (colours) + docs/assets/ (logo, favicon)
 
-site_name: GLACIER
+site_name: glacier
 site_description: >-
   Open-source tools for modelling, simulating and validating cyber-physical
   production systems.
@@ -18,14 +18,17 @@ copyright: >
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/logo_long.png
-  favicon: assets/favicon-16x16.png
+  favicon: assets/favicon.svg
   language: en
   icon:
+    # overrides/.icons/glacier/mark.svg -- inlined as SVG, so it inherits the
+    # header's colour and adapts to light and dark on its own.
+    logo: glacier/mark
     repo: fontawesome/brands/github
-  font:
-    text: Inter
-    code: JetBrains Mono
+  # Disables Material's Google Fonts request; uses the reader's system fonts.
+  # Keeps the site fully self-contained -- no third-party requests, nothing to
+  # block first paint. See docs/stylesheets/extra.css for the font stacks.
+  font: false
   palette:
     # Follows the operating-system setting by default, with a manual override.
     - media: "(prefers-color-scheme)"
@@ -54,7 +57,7 @@ theme:
     - navigation.footer
     - navigation.indexes
     - navigation.instant
-    - navigation.sections
+    - navigation.expand
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
@@ -128,19 +131,21 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
+  # Renders :material-...: and :octicons-...: shortcodes as inline SVG icons.
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      # Lets a page pull in a diagram with: --8<-- "diagrams/<name>.svg"
+      base_path: [docs/assets]
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.superfences
 
 extra_css:
   - stylesheets/extra.css

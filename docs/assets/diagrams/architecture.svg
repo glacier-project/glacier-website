@@ -1,0 +1,42 @@
+<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="The three layers of a GLACIER system. Machine reactors and control software both sit on Frost, which provides messaging, registration and routing. Frost rests on the Lingua Franca runtime and on the machine data model, and the data model reaches real equipment through connectors.">
+  <defs>
+    <marker id="a-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--d-line, #cdc6b3)"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="var(--d-line, #cdc6b3)" stroke-width="1.5" marker-end="url(#a-arrow)">
+    <path d="M230 76 L230 98 Q230 110 242 110 L328 110 Q340 110 340 122 L340 126"/>
+    <path d="M530 76 L530 98 Q530 110 518 110 L432 110 Q420 110 420 122 L420 126"/>
+    <path d="M340 188 L340 200 Q340 212 328 212 L242 212 Q230 212 230 222 L230 226"/>
+    <path d="M420 188 L420 200 Q420 212 432 212 L528 212 Q540 212 540 222 L540 226"/>
+    <path d="M540 288 L540 336"/>
+  </g>
+  <g stroke="var(--d-line, #cdc6b3)" stroke-width="1.5" fill="var(--d-fill, #ffffff)">
+    <rect x="120" y="18" width="220" height="58" rx="8"/>
+    <rect x="420" y="18" width="220" height="58" rx="8"/>
+    <rect x="110" y="228" width="240" height="58" rx="8"/>
+    <rect x="430" y="228" width="220" height="58" rx="8"/>
+    <rect x="430" y="340" width="220" height="58" rx="8"/>
+  </g>
+  <rect x="270" y="128" width="220" height="58" rx="8"
+        stroke="var(--d-accent, #1a5fd9)" stroke-width="1.8"
+        fill="var(--d-accent-soft, #e3ecfb)"/>
+  <g text-anchor="middle" font-family="inherit" fill="var(--d-ink, #14110d)" font-size="15" font-weight="500">
+    <text x="230" y="42">Machine reactors</text>
+    <text x="530" y="42">Control software</text>
+    <text x="380" y="152">Frost</text>
+    <text x="230" y="252">Lingua Franca runtime</text>
+    <text x="540" y="252">Machine data model</text>
+    <text x="540" y="364">Connectors</text>
+  </g>
+  <g text-anchor="middle" font-family="inherit" fill="var(--d-muted, #80766a)" font-size="12.5">
+    <text x="230" y="61">you write these</text>
+    <text x="530" y="61">you write this too</text>
+    <text x="380" y="171">messaging · registration · routing</text>
+    <text x="230" y="271">deterministic logical time</text>
+    <text x="540" y="271">variables · methods · subscriptions</text>
+    <text x="540" y="383">OPC UA · MQTT</text>
+  </g>
+</svg>

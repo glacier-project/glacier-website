@@ -3,27 +3,14 @@
 A GLACIER system is built from three layers. Each one is a separate library, and
 each is useful on its own.
 
-```mermaid
-graph TD
-    subgraph app["Your application"]
-        M["Machine reactors<br/>(extend FrostReactor)"]
-        C["Control software<br/>(extends FrostReactor)"]
-    end
-    subgraph frost["Frost — glacier-project/frost"]
-        R["FrostReactor / FrostLink<br/>messaging and routing"]
-        LF["Lingua Franca runtime<br/>deterministic logical time"]
-    end
-    subgraph mdm["Machine data model — glacier-project/machine-data-model"]
-        DM["Data model<br/>variables, methods, subscriptions"]
-        CN["Connectors<br/>OPC UA, MQTT"]
-    end
+<figure class="glacier-diagram" markdown="span">
+--8<-- "diagrams/architecture.svg"
+<figcaption>The three layers of a GLACIER system.</figcaption>
+</figure>
 
-    M --> R
-    C --> R
-    R --> LF
-    R --> DM
-    DM --> CN
-```
+Your machines and your control software both extend `FrostReactor`. Frost gives
+them messaging and an execution model; the machine data model gives them an
+interface; connectors let that interface point at real equipment.
 
 ## The data model
 
@@ -69,24 +56,10 @@ is built on Lingua Franca rather than on a general-purpose async framework.
 The sequence below shows a control component invoking a method on a machine
 through a `FrostLink`. Every arrow is a `FrostMessage`.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant C as Control component<br/>(FrostReactor)
-    participant L as FrostLink
-    participant M as Machine<br/>(FrostReactor)
-
-    C->>L: PROTOCOL / REGISTER
-    L-->>C: PROTOCOL / REGISTER (response)
-    M->>L: PROTOCOL / REGISTER
-    L-->>M: PROTOCOL / REGISTER (response)
-
-    C->>L: METHOD / INVOKE (node, args, kwargs)
-    L->>M: METHOD / INVOKE
-    M->>M: run the node's callback
-    M->>L: METHOD / COMPLETED (ret)
-    L->>C: METHOD / COMPLETED (ret)
-```
+<figure class="glacier-diagram" markdown="span">
+--8<-- "diagrams/request-sequence.svg"
+<figcaption>A method invocation travelling through a FrostLink.</figcaption>
+</figure>
 
 Registration happens first: a component broadcasts a `REGISTER` request on every
 output channel, and records which port each answer came back on. Once every port

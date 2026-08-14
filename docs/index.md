@@ -19,47 +19,6 @@ software against it, and test it before it ever touches the plant.
 
 </div>
 
-## Where to go next
-
-<div class="grid cards" markdown>
-
--   __Overview__
-
-    ---
-
-    What GLACIER is, the problem it addresses, and how its pieces fit
-    together.
-
-    [:octicons-arrow-right-24: Read the overview](overview/index.md)
-
--   __Frost__
-
-    ---
-
-    The simulation and control framework at the centre of GLACIER: its
-    reactors, its data model, and worked examples.
-
-    [:octicons-arrow-right-24: Frost documentation](frost/index.md)
-
--   __Learn__
-
-    ---
-
-    Tutorials, hands-on labs and lecture material that use GLACIER tools.
-
-    [:octicons-arrow-right-24: Learning resources](learn/index.md)
-
--   __Repositories__
-
-    ---
-
-    The public GLACIER repositories, what each one is for, and how they
-    relate.
-
-    [:octicons-arrow-right-24: Browse the repositories](reference/repositories.md)
-
-</div>
-
 ## What GLACIER gives you
 
 **A machine interface you can describe once.** Machines expose their state and
@@ -76,6 +35,13 @@ simulation with the same inputs gives the same interleaving of events.
 by a simulated machine or, through a connector, by a real OPC UA server or MQTT
 broker. Frost is designed so that control software written against a simulated
 plant needs few or no changes when the interface is pointed at real equipment.
+
+## Where the code is
+
+Everything is on GitHub under
+[glacier-project](https://github.com/glacier-project), under permissive BSD
+licences. The [Repositories](reference/repositories.md) page says what each one
+is for.
 
 !!! note "Where this documentation stands"
 

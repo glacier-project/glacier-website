@@ -3,24 +3,10 @@
 GLACIER is not a single program. It is a set of libraries and applications that
 share the machine data model as a common interface.
 
-```mermaid
-graph LR
-    MDM["machine-data-model<br/><i>interface library</i>"]
-    FR["frost<br/><i>simulation framework</i>"]
-    FP["frost-planner<br/><i>scheduling library</i>"]
-
-    PG["frost-playground<br/><i>examples</i>"]
-    TP["frost-template<br/><i>project starter</i>"]
-    ICE["ice-frost<br/><i>ICE laboratory</i>"]
-    XP["xppu-frost<br/><i>xPPU demonstrator</i>"]
-
-    MDM --> FR
-    FP --> FR
-    FR --> PG
-    FR --> TP
-    FR --> ICE
-    FR --> XP
-```
+<figure class="glacier-diagram" markdown="span">
+--8<-- "diagrams/ecosystem.svg"
+<figcaption>How the GLACIER repositories depend on one another.</figcaption>
+</figure>
 
 ## Core libraries
 

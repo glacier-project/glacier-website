@@ -4,16 +4,10 @@ Frost provides six reactors. Two of them — `FrostReactor` and `FrostLink` — 
 the ones you instantiate. The other four exist so that those two can share
 their machinery.
 
-```mermaid
-graph TD
-    A[FrostBase] --> B(FrostInterface)
-    A --> C(MessageFilter)
-    A --> D(FrostNode)
-    B --> E(FrostReactor)
-    D --> E
-    B --> F(FrostLink)
-    D --> F
-```
+<figure class="glacier-diagram" markdown="span">
+--8<-- "diagrams/component-hierarchy.svg"
+<figcaption>What each Frost reactor inherits from.</figcaption>
+</figure>
 
 `FrostReactor` and `FrostLink` each inherit from two parents: `FrostInterface`,
 which gives them channels and message dispatch, and `FrostNode`, which gives

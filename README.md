@@ -6,14 +6,19 @@ Built with [MkDocs](https://www.mkdocs.org/) and
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). All content
 is plain Markdown.
 
+**The published site makes no third-party requests.** No web fonts, no CDN
+scripts, no client-side rendering. Keep it that way — see
+[Conventions](#conventions-worth-keeping).
+
 ## Where things are
 
 | | |
 | --- | --- |
 | Page content | `docs/` — one Markdown file per page |
 | Images | `docs/assets/` |
+| Diagrams | `docs/assets/diagrams/` — plain SVG |
 | Navigation | the `nav:` block in `mkdocs.yml` |
-| Colours and branding | `docs/stylesheets/extra.css` (colours), `docs/assets/` (logo, favicon) |
+| Colours and branding | `docs/stylesheets/extra.css` (colours), `docs/assets/` + `overrides/.icons/glacier/` (logo) |
 | Everything else configurable | `mkdocs.yml` |
 | Deployment | `.github/workflows/deploy.yml` |
 
@@ -63,6 +68,33 @@ Put the file in `docs/assets/` and reference it with a path relative to the page
 ![xPPU layout](../assets/xppu-layout.png)
 ```
 
+## Add a diagram
+
+Diagrams are hand-written SVG in `docs/assets/diagrams/`, inlined into the page
+so they follow the light/dark theme. There is no diagram library and no
+JavaScript.
+
+1. Copy an existing file in `docs/assets/diagrams/` and edit the shapes.
+   Use `var(--d-line)`, `var(--d-fill)`, `var(--d-ink)`, `var(--d-muted)`,
+   `var(--d-accent)` and `var(--d-accent-soft)` for colours — those are defined
+   in `extra.css` and differ per theme. Give the `<svg>` a `viewBox` and no
+   `width`/`height`, and an `aria-label` describing it.
+2. Drop it into the page:
+
+   ```markdown
+   <figure class="glacier-diagram" markdown="span">
+   --8<-- "diagrams/your-diagram.svg"
+   <figcaption>What the diagram shows.</figcaption>
+   </figure>
+   ```
+
+### One rule for diagram SVGs
+
+**No blank lines and no HTML comments inside the file.** Markdown treats
+both as block terminators and will shred the SVG into paragraphs. `mkdocs build`
+will not warn you; the page will just look wrong. Put explanation in the
+`aria-label` instead, which doubles as the screen-reader description.
+
 ## Add a learning resource
 
 Edit `docs/learn/tutorials.md`, `docs/learn/labs.md` or `docs/learn/lectures.md`
@@ -75,9 +107,26 @@ it as a link.
 
 ## Change the colours
 
-`docs/stylesheets/extra.css`. The GLACIER brand colours are at the top of the
-file with a comment explaining why each theme uses a different shade of them.
-It is the only stylesheet on the site.
+`docs/stylesheets/extra.css`. The top of the file holds the GLACIER design
+system's `--glc-*` tokens for each theme, and the block under each one maps them
+onto the variables Material uses. Re-branding means editing those token values
+and nothing else.
+
+The tokens come from the GLACIER design system (`glacier.css`). Keep them in
+step with it rather than inventing new colours here.
+
+## Change the logo
+
+Two pieces, matching the design system's lockup:
+
+- the mark is `overrides/.icons/glacier/mark.svg`, set as `theme.icon.logo` in
+  `mkdocs.yml`. It is inlined as SVG and drawn in `currentColor`, so it follows
+  the theme. Keep `fill="none"` on each `<path>` — Material sets
+  `fill: currentColor` on the logo and would otherwise fill the shape in.
+- the wordmark is live text, from `site_name` in `mkdocs.yml`.
+
+`docs/assets/favicon.svg` is a separate copy of the mark, with fixed colours,
+because a favicon renders outside the page and cannot inherit anything.
 
 ## Deployment
 
@@ -92,9 +141,15 @@ mkdocs gh-deploy
 
 ## Conventions worth keeping
 
+- **No third-party requests.** `theme.font: false` is deliberate: Material's
+  default pulls fonts from Google, which costs a render-blocking request and
+  sends visitor IPs to Google before the cookie dialogue is answered. Diagrams
+  are static SVG for the same reason — the previous mermaid setup fetched 3.5 MB
+  from `unpkg.com` on every page that had a diagram. If you add something that
+  loads from another host, you have undone this.
 - **Markdown, not HTML.** Material has built-in support for admonitions,
   content tabs, [grid cards](https://squidfunk.github.io/mkdocs-material/reference/grids/)
-  and mermaid diagrams. Reach for those before writing a `<div>`.
+  and buttons. Reach for those before writing a `<div>`.
 - **One custom stylesheet.** If a page needs styling, it probably needs a
   Material feature instead.
 - **No JavaScript.** There is none, and the site does not need any.

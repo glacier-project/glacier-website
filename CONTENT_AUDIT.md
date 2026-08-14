@@ -171,6 +171,10 @@ corrected by their maintainers:
 | `docs/diagrams/sequence/{read,write,subscribe}_variable.md` | Empty files (0 bytes) | **STALE** | Deleted |
 | `docs/diagrams/sequence/{method,async_method,composite_method}.md` | Not referenced from `nav:` or any page, but built and published as pages | **STALE** | Deleted; the useful one is redrawn on the Architecture page |
 | `docs/index.md` contained ~200 lines including the whole Frost manual | — | — | Split across Overview, Frost and Reference |
+| `theme.font` set Inter and JetBrains Mono | Measured: 71.6 KB from `fonts.googleapis.com` and `fonts.gstatic.com` on every page, render-blocking, and fetched before the cookie dialogue is answered | **PRIVACY / PERFORMANCE** | `theme.font: false`; Geist-first system stack in CSS |
+| Mermaid diagrams | Measured: Material fetches `mermaid.min.js` from `unpkg.com` at runtime — **3.48 MB** on every page carrying a diagram | **PERFORMANCE** | Replaced with four hand-written static SVGs; no JavaScript, no third-party host |
+| `logo_long.png` | 206 KB, shipped in the header of every page, and a raster that cannot adapt to a dark theme | **PERFORMANCE** | Replaced by the design system's SVG mark (≈450 bytes, `currentColor`) plus live text |
+| `navigation.sections` | Rendered `Components`, `Data model` and `Examples` as flat bold headers with their children at the same indentation, so the parent/child relationship was invisible | **USABILITY** | Swapped for `navigation.expand`, which nests and indents children under a collapsible parent |
 
 ---
 
@@ -252,6 +256,62 @@ Illustrative, not copied from a runnable source. Marked as such in prose.
 | UPDATED | 6 |
 | CONCEPTUAL | 4 |
 | REMOVED | 12 |
+
+---
+
+---
+
+## The design system
+
+The site's colours, logo and type come from the **GLACIER design system**
+(supplied as `GlacierDesignSystem.zip`, authored outside this repository).
+
+**Adopted:**
+
+- the `--glc-*` colour tokens, light and dark, copied verbatim into
+  `docs/stylesheets/extra.css` and mapped onto Material's own variables;
+- the stratified-diamond mark, as `overrides/.icons/glacier/mark.svg` and
+  `docs/assets/favicon.svg`;
+- the lowercase `glacier` wordmark, reproduced as live text rather than as the
+  supplied SVG, because that SVG sets the word in `<text font-family="Geist">`
+  and would fall back to a different face wherever Geist is absent — which is
+  everywhere, since this site loads no web fonts;
+- the type rules that do not need Geist: headings at weight 500 with negative
+  tracking, slashed zero and `ss01` on code.
+
+**Not adopted, deliberately:**
+
+- **`glacier.css` itself** (40 KB, 104 classes). It is a Bootstrap-style
+  component library — buttons, forms, tables, navs, modals, toasts, accordions.
+  Material already provides all of those. Loading both would mean two competing
+  component systems, two type scales, and two dark-mode mechanisms
+  (`[data-theme="dark"]` versus `[data-md-color-scheme="slate"]`). Only the
+  tokens were taken.
+- **Geist and Source Serif 4 over Google Fonts.** Measured at 71.6 KB and two
+  third-party hosts per page. The stacks in `extra.css` name Geist first, so
+  self-hosting the `.woff2` files later is a one-block change with no other
+  edits. `fonts/README.md` in the design system explains how; the files must be
+  downloaded from <https://vercel.com/font>.
+- **`ui_kits/`, `slides/`, `preview/`, `scraps/`.** Prototyping material for
+  other surfaces, not for a documentation site.
+
+**Contrast, verified against WCAG AA:** primary `#1a5fd9` on paper `#faf8f3` is
+**5.4:1**; dark primary `#5a92ff` on `#0d100f` is **6.4:1**. Both pass for body
+text. The design system's secondary `#d97a3a` is used only as a rule on the
+announcement bar, never behind text.
+
+**Two problems in the design system's own `README.md`,** for its author:
+
+- its *Sources* table cites `esd-univr/frost` and
+  `esd-univr/frost-machine-data-model`, the legacy org URLs this audit
+  replaced everywhere else. Current: `glacier-project/frost` and
+  `glacier-project/machine-data-model`.
+- it names the website as MkDocs Material, which is correct and matches the
+  decision recorded here.
+
+`GlacierDesignSystem.zip` is **not committed** to this repository. It is an
+input, not a dependency: everything the site needs from it now lives in
+`extra.css` and the two SVGs.
 
 ---
 
