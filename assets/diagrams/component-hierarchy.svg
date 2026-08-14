@@ -1,0 +1,47 @@
+<svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="The Frost component inheritance tree. FrostBase is the root, and MessageFilter, FrostInterface and FrostNode all extend it. FrostReactor and FrostLink each extend both FrostInterface and FrostNode.">
+  <defs>
+    <marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--d-line, #cdc6b3)"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="var(--d-line, #cdc6b3)" stroke-width="1.5" marker-end="url(#h-arrow)">
+    <path d="M380 74 L380 92 Q380 102 370 102 L140 102 Q130 102 130 112 L130 128"/>
+    <path d="M380 74 L380 128"/>
+    <path d="M380 74 L380 92 Q380 102 390 102 L620 102 Q630 102 630 112 L630 128"/>
+    <path d="M370 188 L370 200 Q370 206 362 206 L246 206 Q238 206 238 214 L238 236"/>
+    <path d="M390 188 L390 200 Q390 206 398 206 L514 206 Q522 206 522 214 L522 236"/>
+    <path d="M622 188 L622 214 Q622 220 614 220 L258 220 Q250 220 250 228 L250 236"/>
+    <path d="M638 188 L638 214 Q638 220 630 220 L542 220 Q534 220 534 228 L534 236"/>
+  </g>
+  <g stroke="var(--d-line, #cdc6b3)" stroke-width="1.5" fill="var(--d-fill, #ffffff)">
+    <rect x="290" y="16" width="180" height="58" rx="8"/>
+    <rect x="40"  y="128" width="180" height="58" rx="8"/>
+    <rect x="290" y="128" width="180" height="58" rx="8"/>
+    <rect x="540" y="128" width="180" height="58" rx="8"/>
+  </g>
+  <g stroke="var(--d-accent, #1a5fd9)" stroke-width="1.8" fill="var(--d-accent-soft, #e3ecfb)">
+    <rect x="150" y="240" width="180" height="58" rx="8"/>
+    <rect x="430" y="240" width="180" height="58" rx="8"/>
+  </g>
+  <g text-anchor="middle" font-family="inherit" font-size="14.5" font-weight="500"
+     fill="var(--d-ink, #14110d)">
+    <text x="380" y="41">FrostBase</text>
+    <text x="130" y="153">MessageFilter</text>
+    <text x="380" y="153">FrostInterface</text>
+    <text x="630" y="153">FrostNode</text>
+    <text x="240" y="265">FrostReactor</text>
+    <text x="520" y="265">FrostLink</text>
+  </g>
+  <g text-anchor="middle" font-family="inherit" font-size="12" fill="var(--d-muted, #80766a)">
+    <text x="380" y="60">logging · config · ports</text>
+    <text x="130" y="172">message triage</text>
+    <text x="380" y="172">channels · dispatch</text>
+    <text x="630" y="172">data model</text>
+  </g>
+  <g text-anchor="middle" font-family="inherit" font-size="12" fill="var(--d-accent, #1a5fd9)">
+    <text x="240" y="284">you extend this</text>
+    <text x="520" y="284">you instantiate this</text>
+  </g>
+</svg>

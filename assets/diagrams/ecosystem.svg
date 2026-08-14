@@ -1,0 +1,47 @@
+<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="The GLACIER ecosystem. The machine-data-model interface library and the frost-planner scheduling library both feed the frost simulation framework, which in turn is used by frost-template, frost-playground, ice-frost and xppu-frost.">
+  <defs>
+    <marker id="e-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="var(--d-line, #cdc6b3)"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="var(--d-line, #cdc6b3)" stroke-width="1.5" marker-end="url(#e-arrow)">
+    <path d="M210 118 Q300 118 300 168 L300 178"/>
+    <path d="M210 262 Q300 262 300 212 L300 202"/>
+    <path d="M460 172 Q540 172 540 82  L548 82"/>
+    <path d="M460 182 Q540 182 540 152 L548 152"/>
+    <path d="M460 198 Q540 198 540 228 L548 228"/>
+    <path d="M460 208 Q540 208 540 298 L548 298"/>
+  </g>
+  <g stroke="var(--d-line, #cdc6b3)" stroke-width="1.5" fill="var(--d-fill, #ffffff)">
+    <rect x="20" y="90"  width="190" height="56" rx="8"/>
+    <rect x="20" y="234" width="190" height="56" rx="8"/>
+    <rect x="550" y="54"  width="190" height="56" rx="8"/>
+    <rect x="550" y="124" width="190" height="56" rx="8"/>
+    <rect x="550" y="200" width="190" height="56" rx="8"/>
+    <rect x="550" y="270" width="190" height="56" rx="8"/>
+  </g>
+  <rect x="270" y="160" width="190" height="60" rx="8"
+        stroke="var(--d-accent, #1a5fd9)" stroke-width="1.8"
+        fill="var(--d-accent-soft, #e3ecfb)"/>
+  <g text-anchor="middle" font-family="inherit" font-size="14" font-weight="500"
+     fill="var(--d-ink, #14110d)">
+    <text x="115" y="113">machine-data-model</text>
+    <text x="115" y="257">frost-planner</text>
+    <text x="365" y="187">frost</text>
+    <text x="645" y="77">frost-template</text>
+    <text x="645" y="147">frost-playground</text>
+    <text x="645" y="223">ice-frost</text>
+    <text x="645" y="293">xppu-frost</text>
+  </g>
+  <g text-anchor="middle" font-family="inherit" font-size="12" fill="var(--d-muted, #80766a)">
+    <text x="115" y="131">interface library</text>
+    <text x="115" y="275">scheduling library</text>
+    <text x="365" y="206">simulation framework</text>
+    <text x="645" y="95">project starter</text>
+    <text x="645" y="165">examples</text>
+    <text x="645" y="241">ICE laboratory</text>
+    <text x="645" y="311">xPPU demonstrator</text>
+  </g>
+</svg>
