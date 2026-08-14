@@ -1,43 +1,168 @@
+/* ---------------------------------------------------------------------------
+   GLACIER branding.
+
+   This is the only stylesheet on the site. It sets the GLACIER colours on the
+   variables Material for MkDocs already uses, and makes a handful of spacing
+   adjustments. Everything else is stock Material.
+
+   Brand colours, sampled from docs/assets/logo_long.png:
+     glacier ice   #6b909b
+     glacier amber #e2c15d
+
+   Neither brand colour has enough contrast for body text on white, so each
+   theme uses a shade of them that does. Change the values below to re-brand
+   the site.
+   --------------------------------------------------------------------------- */
+
+[data-md-color-scheme="default"] {
+  --glacier-ice: #6b909b;
+  --glacier-amber: #e2c15d;
+
+  /* Header and other "primary" surfaces: kept neutral so the logo carries the
+     brand. --md-primary-bg-color is the foreground used on top of them. */
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #ffffff;
+  --md-primary-fg-color--dark: #40636f;
+  --md-primary-bg-color: #1b2227;
+  --md-primary-bg-color--light: #55646d;
+
+  --md-accent-fg-color: #2f5563;
+  --md-accent-fg-color--transparent: #40636f14;
+
+  --md-typeset-a-color: #40636f;
+
+  --glacier-border: #dfe4e8;
+  --glacier-surface: #f6f8f9;
+}
+
+[data-md-color-scheme="slate"] {
+  /* Cools Material's default slate (hue 232) towards the glacier blue. */
+  --md-hue: 205;
+
+  --glacier-ice: #9fc0cc;
+  --glacier-amber: #e2c15d;
+
+  --md-primary-fg-color: #1b2126;
+  --md-primary-fg-color--light: #2a333a;
+  --md-primary-fg-color--dark: #12171a;
+  --md-primary-bg-color: #e8eef1;
+  --md-primary-bg-color--light: #9fb0ba;
+
+  --md-accent-fg-color: #e2c15d;
+  --md-accent-fg-color--transparent: #e2c15d1f;
+
+  --md-typeset-a-color: #9fc0cc;
+
+  --glacier-border: #ffffff1f;
+  --glacier-surface: #ffffff08;
+}
+
+/* --- Header ---------------------------------------------------------------
+   The header background is near-white in light mode, so it needs a hairline to
+   separate it from the page. */
+
+.md-header {
+  border-bottom: 1px solid var(--glacier-border);
+}
+
 .md-header__button.md-logo img {
-    height: 50px;
-    object-fit: contain;
-  }
-  
-.md-banner {
-    font-family: Consolas, "Courier New", Courier, monospace;
-    text-align: center;
-    font-size: 0.95rem;
-    background-color: #e2c15d;
-    color: #fff;
+  height: 1.6rem;
+  width: auto;
 }
 
+/* The logo already reads "GLACIER"; repeating it in text is noise. */
 .md-header__title {
-    visibility: hidden;
+  display: none;
 }
 
-.md-footer,
-.md-footer-meta,
-.md-footer-meta__inner,
-.md-copyright {
-    background-color: #ffffff !important;
-    box-shadow: none !important;
-    opacity: 1 !important;
+.md-tabs {
+  border-bottom: 1px solid var(--glacier-border);
 }
 
-.md-footer-meta__inner {
-    border-top: 1px solid #ddd !important;
+/* --- Announcement bar ------------------------------------------------------
+   The amber brand colour is too light to carry white text (1.8:1). Use it as
+   an accent rule instead, on a neutral surface. */
+
+.md-banner {
+  background-color: var(--glacier-surface);
+  border-bottom: 2px solid var(--glacier-amber);
+  color: var(--md-default-fg-color);
+  font-size: 0.7rem;
 }
 
-.md-footer,
-.md-footer * {
-    color: #000000 !important;
+.md-banner__inner {
+  text-align: center;
 }
 
-.md-footer a {
-    text-decoration: underline;
+/* --- Home page hero -------------------------------------------------------- */
+
+.glacier-hero {
+  border-bottom: 1px solid var(--glacier-border);
+  margin-bottom: 2.4rem;
+  padding: 1.6rem 0 2.4rem;
 }
 
-.md-footer a:hover {
-    color: #555555 !important;
+.glacier-hero h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.6rem;
+  max-width: 18em;
 }
-  
+
+.glacier-hero p {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 1.4rem;
+  max-width: 34em;
+}
+
+.glacier-hero .md-button {
+  margin: 0 0.4rem 0.4rem 0;
+}
+
+@media screen and (max-width: 44.98em) {
+  .glacier-hero h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* --- Cards -----------------------------------------------------------------
+   Material's built-in `grid cards` are used as-is; these only soften the
+   border and make the hover state follow the brand. */
+
+.md-typeset .grid.cards > ul > li {
+  border-color: var(--glacier-border);
+  border-radius: 0.2rem;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--glacier-ice);
+  box-shadow: none;
+}
+
+/* --- Typography ------------------------------------------------------------ */
+
+.md-typeset h2 {
+  border-bottom: 1px solid var(--glacier-border);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding-bottom: 0.3rem;
+}
+
+.md-typeset h3 {
+  font-weight: 600;
+}
+
+/* Mermaid diagrams are rendered with transparent backgrounds; centre them and
+   let them shrink on narrow screens instead of overflowing. */
+.md-typeset .mermaid {
+  text-align: center;
+}
+
+.md-typeset .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
