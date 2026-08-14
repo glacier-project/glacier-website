@@ -1,16 +1,22 @@
 {#-
-  Copy of Material's partials/source.html with one attribute removed.
+  Copy of Material's partials/source.html with two changes.
 
-  The original carries `data-md-component="source"`, which makes Material call
-  api.github.com on every page load to show the repository's star and fork
-  counts. That is an unconditional third-party request -- it fires before the
-  cookie dialogue is answered -- in exchange for two numbers nobody needs on a
-  documentation site.
+  1. The original carries `data-md-component="source"`, which makes Material
+     call api.github.com on every page load to show the repository's star and
+     fork counts. That is an unconditional third-party request -- it fires
+     before the cookie dialogue is answered -- in exchange for two numbers
+     nobody needs on a documentation site. Without the attribute the link and
+     icon render exactly as before and no request is made.
 
-  Without the attribute the link and icon render exactly as before and no
-  request is made. Re-check this file if Material's own version changes.
+  2. The link points at the GLACIER organisation rather than `config.repo_url`,
+     because the header reads `glacier-project` and that is where a visitor
+     clicking it expects to land -- the whole ecosystem, not the repository that
+     happens to hold this website. `config.repo_url` is left alone: it is what
+     builds every "Edit this page" link, via `edit_uri`.
+
+  Re-check this file if Material's own version changes.
 -#}
-<a href="{{ config.repo_url }}" title="{{ lang.t('source') }}" class="md-source">
+<a href="https://github.com/glacier-project" title="GLACIER on GitHub" class="md-source">
   <div class="md-source__icon md-icon">
     {% set icon = config.theme.icon.repo or "fontawesome/brands/git-alt" %}
     {% include ".icons/" ~ icon ~ ".svg" %}
