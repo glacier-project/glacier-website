@@ -103,6 +103,8 @@ nav:
       - reference/index.md
       - Repositories: reference/repositories.md
       - Versions: reference/versions.md
+      # Generated from this nav: block by `make site-map`. Never edited by hand.
+      - Site map: reference/site-map.md
   - Project:
       - project/index.md
 

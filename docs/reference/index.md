@@ -22,4 +22,12 @@ Factual reference material about the GLACIER repositories.
 
     [:octicons-arrow-right-24: Versions](versions.md)
 
+-   :material-sitemap-outline: __Site map__
+
+    ---
+
+    Every public page on this website, in one list.
+
+    [:octicons-arrow-right-24: Site map](site-map.md)
+
 </div>
