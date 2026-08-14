@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- GLACIER stratified-diamond mark. A favicon renders outside the page, so
+       it cannot use currentColor; these are the light and dark primaries from
+       the design system, switched on the browser/OS theme. -->
+  <style>
+    .m { stroke: #1a5fd9; }
+    @media (prefers-color-scheme: dark) { .m { stroke: #5a92ff; } }
+  </style>
+  <g class="m" stroke-width="3" stroke-linejoin="round" fill="none">
+    <path d="M6 24 L24 6 L42 24 L24 42 Z"/>
+    <path d="M6 24 L24 14 L42 24"/>
+    <path d="M14 29 L24 24 L34 29" stroke-linecap="round"/>
+  </g>
+</svg>

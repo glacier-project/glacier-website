@@ -1,2 +1,11 @@
+# Python environment
 .venv/
+__pycache__/
+
+# MkDocs build output
 site/
+
+# Design-system drop supplied by the brand author. An input, not a dependency:
+# what the site uses from it lives in docs/stylesheets/extra.css and the two
+# SVG marks. See CONTENT_AUDIT.md.
+GlacierDesignSystem.zip

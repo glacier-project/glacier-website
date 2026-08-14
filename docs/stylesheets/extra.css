@@ -1,43 +1,297 @@
-.md-header__button.md-logo img {
-    height: 50px;
-    object-fit: contain;
-  }
-  
+/* ---------------------------------------------------------------------------
+   GLACIER branding for Material for MkDocs.
+
+   This is the only stylesheet on the site, and it does one job: it maps the
+   GLACIER design system's tokens onto the CSS variables Material already uses.
+   No components are restyled and no layout is rebuilt -- Material stays stock,
+   wearing GLACIER's colours.
+
+   Token source: the GLACIER design system (`glacier.css`, `--glc-*`).
+   Keep the values below in step with it; that is the whole re-branding surface.
+
+   Note on fonts: the design system specifies Geist, served from Google Fonts.
+   The site does not load it, because no page here makes a third-party request.
+   Geist is listed first in the stacks below, so it is used when the reader
+   happens to have it, and the system UI font is used otherwise. To adopt Geist
+   properly, self-host the .woff2 files and add an @font-face here.
+   --------------------------------------------------------------------------- */
+
+/* --- Light ---------------------------------------------------------------- */
+
+[data-md-color-scheme="default"] {
+  /* Design system tokens, verbatim. */
+  --glc-paper: #faf8f3;
+  --glc-bg-card: #ffffff;
+  --glc-bg-sunken: #f4f1ea;
+  --glc-bg-sunken-2: #ebe6da;
+  --glc-ink: #14110d;
+  --glc-ink-2: #2a2520;
+  --glc-muted: #80766a;
+  --glc-faint: #a89e8d;
+  --glc-line: #e3ddcd;
+  --glc-line-strong: #cdc6b3;
+  --glc-primary: #1a5fd9;
+  --glc-primary-hover: #1750b8;
+  --glc-primary-soft: #e3ecfb;
+  --glc-primary-ink: #ffffff;
+  --glc-secondary: #d97a3a;
+  --glc-tertiary: #2f8a8a;
+
+  /* Material's variables, pointed at the tokens above. */
+  --md-default-bg-color: var(--glc-paper);
+  --md-default-fg-color: var(--glc-ink);
+  --md-default-fg-color--light: var(--glc-muted);
+  --md-default-fg-color--lighter: var(--glc-faint);
+  --md-default-fg-color--lightest: var(--glc-line);
+
+  --md-primary-fg-color: var(--glc-primary);
+  --md-primary-fg-color--light: #4a83e4;
+  --md-primary-fg-color--dark: var(--glc-primary-hover);
+  --md-primary-bg-color: var(--glc-primary-ink);
+  --md-primary-bg-color--light: #ffffffb3;
+
+  --md-accent-fg-color: var(--glc-primary-hover);
+  --md-accent-fg-color--transparent: var(--glc-primary-soft);
+  --md-accent-bg-color: var(--glc-primary-ink);
+
+  --md-typeset-a-color: var(--glc-primary);
+  --md-code-bg-color: var(--glc-bg-sunken);
+  --md-code-fg-color: var(--glc-ink-2);
+
+  --md-footer-bg-color: var(--glc-ink);
+  --md-footer-bg-color--dark: #0d0b08;
+
+  --glacier-field: #14110d0f;
+  --glacier-field-hover: #14110d1a;
+  --glacier-field-line: var(--glc-line-strong);
+}
+
+/* --- Dark ----------------------------------------------------------------- */
+
+[data-md-color-scheme="slate"] {
+  --glc-paper: #0d100f;
+  --glc-bg-card: #161a1a;
+  --glc-bg-sunken: #1c2122;
+  --glc-bg-sunken-2: #232a2c;
+  --glc-ink: #ecebe6;
+  --glc-ink-2: #d7d6d2;
+  --glc-muted: #8c9094;
+  --glc-faint: #5f6468;
+  --glc-line: #2a3033;
+  --glc-line-strong: #3a4146;
+  --glc-primary: #5a92ff;
+  --glc-primary-hover: #6fa2ff;
+  --glc-primary-soft: rgba(90, 146, 255, 0.16);
+  --glc-primary-ink: #0d100f;
+  --glc-secondary: #d97a3a;
+  --glc-tertiary: #2f8a8a;
+
+  --md-default-bg-color: var(--glc-paper);
+  --md-default-fg-color: var(--glc-ink);
+  --md-default-fg-color--light: var(--glc-muted);
+  --md-default-fg-color--lighter: var(--glc-faint);
+  --md-default-fg-color--lightest: var(--glc-line);
+
+  --md-primary-fg-color: var(--glc-primary);
+  --md-primary-fg-color--light: var(--glc-primary-hover);
+  --md-primary-fg-color--dark: #3f78e8;
+  --md-primary-bg-color: var(--glc-primary-ink);
+  --md-primary-bg-color--light: #0d100fb3;
+
+  --md-accent-fg-color: var(--glc-primary-hover);
+  --md-accent-fg-color--transparent: var(--glc-primary-soft);
+  --md-accent-bg-color: var(--glc-primary-ink);
+
+  --md-typeset-a-color: var(--glc-primary);
+  --md-code-bg-color: var(--glc-bg-sunken);
+  --md-code-fg-color: var(--glc-ink-2);
+
+  --md-footer-bg-color: #060807;
+  --md-footer-bg-color--dark: #000000;
+
+  --glacier-field: #ffffff14;
+  --glacier-field-hover: #ffffff24;
+  --glacier-field-line: var(--glc-line-strong);
+}
+
+/* --- Type -----------------------------------------------------------------
+   Geist first, system UI after it. Nothing is fetched. */
+
+:root {
+  --md-text-font-family: Geist, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --md-code-font-family: "Geist Mono", ui-monospace, SFMono-Regular,
+    "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+/* The design system's headings drop weight and gain negative tracking rather
+   than getting heavier. */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--glc-ink);
+  font-weight: 500;
+}
+
+.md-typeset h1 {
+  letter-spacing: -0.025em;
+}
+
+.md-typeset h2 {
+  border-bottom: 1px solid var(--glc-line);
+  letter-spacing: -0.018em;
+  padding-bottom: 0.3rem;
+}
+
+.md-typeset h3 {
+  letter-spacing: -0.012em;
+}
+
+/* Slashed zero and stylistic set 1, so identifiers and numbers read cleanly. */
+.md-typeset code,
+.md-typeset pre {
+  font-feature-settings: "ss01", "zero";
+}
+
+/* --- Header ---------------------------------------------------------------
+   Material paints the header with the primary colour. Keeping it on paper
+   instead lets the mark and wordmark sit in ink, which is how the design
+   system draws the lockup. */
+
+.md-header,
+.md-tabs {
+  background-color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+}
+
+.md-header {
+  border-bottom: 1px solid var(--glc-line);
+}
+
+/* Mark plus wordmark, reproducing assets/logo-lockup.svg -- but with the
+   wordmark as live text, so it renders correctly without Geist installed. */
+.md-header__button.md-logo :is(img, svg) {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.md-header__title .md-header__topic > .md-ellipsis {
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+}
+
+/* The search field is styled for a coloured header; give it edges against a
+   pale one. */
+.md-search__form {
+  background-color: var(--glacier-field);
+  border: 1px solid var(--glacier-field-line);
+  border-radius: 6px;
+}
+
+.md-search__form:hover {
+  background-color: var(--glacier-field-hover);
+}
+
+/* --- Announcement bar ------------------------------------------------------
+   The secondary sunset is an accent, not a text background. */
+
 .md-banner {
-    font-family: Consolas, "Courier New", Courier, monospace;
-    text-align: center;
-    font-size: 0.95rem;
-    background-color: #e2c15d;
-    color: #fff;
+  background-color: var(--glc-bg-sunken);
+  border-bottom: 2px solid var(--glc-secondary);
+  color: var(--md-default-fg-color);
+  font-size: 0.7rem;
 }
 
-.md-header__title {
-    visibility: hidden;
+.md-banner__inner {
+  text-align: center;
 }
 
-.md-footer,
-.md-footer-meta,
-.md-footer-meta__inner,
-.md-copyright {
-    background-color: #ffffff !important;
-    box-shadow: none !important;
-    opacity: 1 !important;
+/* --- Home page hero -------------------------------------------------------- */
+
+.glacier-hero {
+  border-bottom: 1px solid var(--glc-line);
+  margin-bottom: 2.4rem;
+  padding: 1.6rem 0 2.4rem;
 }
 
-.md-footer-meta__inner {
-    border-top: 1px solid #ddd !important;
+.glacier-hero h1 {
+  font-size: 2.1rem;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0 0 0.6rem;
+  max-width: 18em;
 }
 
-.md-footer,
-.md-footer * {
-    color: #000000 !important;
+/* The lead paragraph only. A width cap here would also squash the button row
+   that follows it. */
+.glacier-hero > p:first-of-type {
+  color: var(--glc-muted);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  max-width: 34em;
 }
 
-.md-footer a {
-    text-decoration: underline;
+.glacier-hero p {
+  margin: 0 0 1.4rem;
 }
 
-.md-footer a:hover {
-    color: #555555 !important;
+.glacier-hero .md-button {
+  border-radius: 6px;
+  margin: 0 0.4rem 0.4rem 0;
 }
-  
+
+@media screen and (max-width: 44.98em) {
+  .glacier-hero h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* --- Cards -----------------------------------------------------------------
+   Material's built-in `grid cards`, on the design system's card surface. */
+
+.md-typeset .grid.cards > ul > li {
+  background-color: var(--glc-bg-card);
+  border-color: var(--glc-line);
+  border-radius: 10px;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--glc-primary);
+  box-shadow: none;
+}
+
+/* --- Diagrams --------------------------------------------------------------
+   The figures in docs/assets/diagrams/ are plain SVG. They read the four
+   variables below, so one file works in both themes and there is no
+   JavaScript and no third-party request behind any diagram on this site. */
+
+/* Material gives figures `width: fit-content`, which would collapse to the
+   SVG's 300px fallback width. */
+.md-typeset .glacier-diagram {
+  margin: 1.4rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.glacier-diagram svg {
+  --d-ink: var(--glc-ink);
+  --d-muted: var(--glc-muted);
+  --d-line: var(--glc-line-strong);
+  --d-fill: var(--glc-bg-card);
+  --d-accent: var(--glc-primary);
+  --d-accent-soft: var(--glc-primary-soft);
+  /* The files carry a viewBox but no width, so they scale to the column.
+     Without an explicit width they would fall back to 300px. */
+  font-family: var(--md-text-font-family);
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.glacier-diagram figcaption {
+  color: var(--glc-muted);
+  font-size: 0.7rem;
+  margin-top: 0.6rem;
+}

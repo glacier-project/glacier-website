@@ -1,82 +1,184 @@
-site_name: "The GLACIER Platform"
+# The GLACIER website. Everything configurable about the site lives in this file.
+#   Content ...... docs/
+#   Navigation ... the `nav:` block below
+#   Branding ..... docs/stylesheets/extra.css (colours) + docs/assets/ (logo, favicon)
+
+site_name: glacier
+site_description: >-
+  Open-source tools for modelling, simulating and validating cyber-physical
+  production systems.
 site_url: https://glacier-project.github.io/glacier-website/
+repo_url: https://github.com/glacier-project/glacier-website
+repo_name: glacier-project
+edit_uri: edit/main/docs/
+copyright: >
+  Copyright &copy; 2024–2026, The GLACIER Project @ University of Verona &mdash;
+  <a href="#__consent">Change cookie settings</a>
+
 theme:
   name: material
   custom_dir: overrides
-  logo: images/logo_long.png
-  favicon: images/favicon-16x16.png
-  palette: 
-    - scheme: default
-      primary: white
-      accent: amber
-  language: en 
+  favicon: assets/favicon.svg
+  language: en
   icon:
-    repo: fontawesome/brands/git-alt
+    # overrides/.icons/glacier/mark.svg -- inlined as SVG, so it inherits the
+    # header's colour and adapts to light and dark on its own.
+    logo: glacier/mark
+    repo: fontawesome/brands/github
+  # Disables Material's Google Fonts request; uses the reader's system fonts.
+  # Keeps the site fully self-contained -- no third-party requests, nothing to
+  # block first paint. See docs/stylesheets/extra.css for the font stacks.
+  font: false
+  palette:
+    # Follows the operating-system setting by default, with a manual override.
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
   features:
-    - navigation.top
-    - navigation.instant
-    - navigation.instant.prefetch
+    - announce.dismiss
+    - content.action.edit
     - content.code.copy
-    - content.code.select
-plugins:
-  - search
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.expand
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
 nav:
   - Home: index.md
-  - Frost: 
-      - Introduction: doc_sources/Introduction.md
-      - Frost Base: doc_sources/Frost_Base.md
-      - Interface: 
-        - Frost Interface: doc_sources/Frost_Interface.md
-        - Message Filter: doc_sources/Message_Filter.md
-      - Frost Data Model: doc_sources/Frost_DataModel.md
-      - Frost Reactor: doc_sources/Frost_Reactor.md
-      - Frost Bus: doc_sources/Frost_Bus.md
-      - Frost Machine: doc_sources/Frost_Machine.md
-      - Examples: 
-          - Stock Market: doc_sources/Stock_Market.md
-          - Publisher and Subscriber: doc_sources/Publisher_Subscriber.md
-          - Target and Initiator: doc_sources/Target_Initiator.md
-          - Alarm and Sensor: doc_sources/Sensor_Alarm.md
+  - Overview:
+      - overview/index.md
+      - Architecture: overview/architecture.md
+      - Ecosystem: overview/ecosystem.md
+  - Frost:
+      - frost/index.md
+      - Components:
+          - frost/components/index.md
+          - FrostBase: frost/components/frost-base.md
+          - FrostInterface: frost/components/frost-interface.md
+          - MessageFilter: frost/components/message-filter.md
+          - FrostNode: frost/components/frost-node.md
+          - FrostReactor: frost/components/frost-reactor.md
+          - FrostLink: frost/components/frost-link.md
+      - Data model:
+          - frost/data-model/index.md
+          - Variables and folders: frost/data-model/nodes.md
+          - Methods: frost/data-model/methods.md
+          - Connectors: frost/data-model/connectors.md
+      - Examples:
+          - frost/examples/index.md
+          - Connecting to a link: frost/examples/link-registration.md
+          - Invoking a method: frost/examples/method-invocation.md
+          - Subscribing to a variable: frost/examples/variable-subscription.md
+      - Configuration: frost/configuration.md
+  - Learn:
+      - learn/index.md
+      - Tutorials: learn/tutorials.md
+      - Labs and exercises: learn/labs.md
+      - Lectures: learn/lectures.md
+  - Reference:
+      - reference/index.md
+      - Repositories: reference/repositories.md
+      - Versions: reference/versions.md
+      # Generated from this nav: block by `make site-map`. Never edited by hand.
+      - Site map: reference/site-map.md
+  - Project:
+      - project/index.md
+
+plugins:
+  - search
+  # Keeps the URLs of the previous site layout working. See docs in README.
+  - redirects:
+      redirect_maps:
+        doc_sources/Introduction.md: frost/components/index.md
+        doc_sources/Frost_Base.md: frost/components/frost-base.md
+        doc_sources/Frost_Interface.md: frost/components/frost-interface.md
+        doc_sources/Message_Filter.md: frost/components/message-filter.md
+        doc_sources/Frost_DataModel.md: frost/components/frost-node.md
+        doc_sources/Frost_Reactor.md: frost/components/frost-reactor.md
+        doc_sources/Frost_Bus.md: frost/components/frost-link.md
+        doc_sources/Frost_Machine.md: frost/components/frost-reactor.md
+        doc_sources/Stock_Market.md: frost/examples/index.md
+        doc_sources/Publisher_Subscriber.md: frost/examples/variable-subscription.md
+        doc_sources/Target_Initiator.md: frost/examples/method-invocation.md
+        doc_sources/Sensor_Alarm.md: frost/examples/index.md
+
 markdown_extensions:
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
   - pymdownx.details
+  # Renders :material-...: and :octicons-...: shortcodes as inline SVG icons.
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - admonition
+  - pymdownx.snippets:
+      # Lets a page pull in a diagram with: --8<-- "diagrams/<name>.svg"
+      base_path: [docs/assets]
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
 extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/glacier-project
+      name: GLACIER on GitHub
   analytics:
     provider: google
     property: G-W9HHV0Z1Z5
     feedback:
       title: Was this page helpful?
       ratings:
-        - icon: material/heart 
+        - icon: material/thumb-up-outline
           name: This page was helpful
           data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/heart-broken
+          note: Thanks for your feedback!
+        - icon: material/thumb-down-outline
           name: This page could be improved
           data: 0
-          note: >- 
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="https://github.com/glacier-project/glacier-website/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">feedback form</a>.
+          note: >-
+            Thanks for your feedback! Help us improve this page by using our
+            <a href="https://github.com/glacier-project/glacier-website/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">feedback form</a>.
   consent:
     title: Cookie consent
     description: >-
-      We use cookies and other tracking technologies to improve your browsing experience on our website, to analyze our website traffic, and to understand where our visitors are coming from.
+      We use cookies and other tracking technologies to improve your browsing
+      experience on our website, to analyze our website traffic, and to
+      understand where our visitors are coming from.
     actions:
       - accept
-      - manage 
-extra_css: 
-  - stylesheets/extra.css
-copyright: >
-  Copyright &copy; 2024-2025, The Glacier Project @ UniVR - <a href="#__consent">Change cookie settings</a>
+      - manage
