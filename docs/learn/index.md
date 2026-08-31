@@ -7,7 +7,7 @@ exists because it is used to teach — manufacturing systems, cyber-physical
 systems, control software engineering. This section is where that material is
 published as it becomes publicly available.
 
-!!! tip "Attending the FDL 2026 PhD School?"
+!!! tip "Attending the FDL 2026 Summer School?"
 
     The GLACIER hands-on session has its own preparation page: what to install,
     what to download, and how to check that your laptop is ready before the

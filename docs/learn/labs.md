@@ -8,7 +8,7 @@ No lab or exercise set has been published on this site yet as standalone
 material.
 
 The closest thing is the workshop package for the GLACIER hands-on session at
-the [FDL 2026 PhD School](events/fdl-2026.md): five exercises, a devcontainer
+the [FDL 2026 Summer School](events/fdl-2026.md): five exercises, a devcontainer
 that supplies the toolchain, and public downloads. It is written for that
 session rather than for self-study, but it is openly available.
 

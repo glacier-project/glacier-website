@@ -12,7 +12,7 @@ belongs — in [Tutorials](../tutorials.md) and the
 
 <div class="grid cards" markdown>
 
--   :material-school-outline: __FDL 2026 PhD School__
+-   :material-school-outline: __FDL 2026 Summer School__
 
     ---
 
