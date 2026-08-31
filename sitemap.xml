@@ -2,130 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://glacier-project.github.io/glacier-website/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/configuration/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/components/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/components/frost-base/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/components/frost-interface/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/components/frost-link/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/components/frost-node/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/components/frost-reactor/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/components/message-filter/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/data-model/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/data-model/connectors/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/data-model/methods/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/data-model/nodes/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/examples/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/examples/link-registration/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/examples/method-invocation/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/frost/examples/variable-subscription/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/learn/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/learn/labs/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/learn/lectures/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/learn/tutorials/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/learn/events/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/learn/events/fdl-2026/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/overview/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/overview/architecture/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/overview/ecosystem/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/project/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/reference/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/reference/repositories/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/reference/site-map/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
     <url>
          <loc>https://glacier-project.github.io/glacier-website/reference/versions/</loc>
-         <lastmod>2026-08-14</lastmod>
+         <lastmod>2026-08-31</lastmod>
     </url>
 </urlset>

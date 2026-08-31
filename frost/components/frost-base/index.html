@@ -1438,7 +1438,7 @@ development branches and may change.
         
   
   <span class="md-ellipsis">
-    FDL 2026 PhD School
+    FDL 2026 Summer School
     
   </span>
   
@@ -1758,7 +1758,7 @@ development branches and may change.
 <p><code>FrostBase</code> is the root of the Frost component hierarchy. It provides the
 utilities every other reactor relies on: a logger, configuration handling, port
 helpers and logical-time helpers. It has no ports of its own.</p>
-<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">reactor</span><span class="w"> </span><span class="nc">FrostBase</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;unnamed_reactor&quot;</span><span class="p">)</span>
+<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">reactor</span><span class="w"> </span><span class="nc">FrostBase</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"unnamed_reactor"</span><span class="p">)</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -1781,7 +1781,7 @@ helpers and logical-time helpers. It has no ports of its own.</p>
 <code>logging.Logger</code> named after the reactor, and sets its level from the
 configuration file. Use it rather than <code>print</code>, so that output is timestamped
 with logical time and can be silenced per component.</p>
-<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Received </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Received </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p><code>FrostBase</code> also reads the reactor's own section of the configuration file at
@@ -1794,8 +1794,8 @@ nested configuration:</p>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">device_1</span><span class="p">:</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">logging_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INFO</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">parameters</span><span class="p">:</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">data_model_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;resources/data_model/device_1.yml&quot;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">peer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;device_2&quot;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">data_model_path</span><span class="p">:</span><span class="w"> </span><span class="s">"resources/data_model/device_1.yml"</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">peer</span><span class="p">:</span><span class="w"> </span><span class="s">"device_2"</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">reactors</span><span class="p">:</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">message_filter</span><span class="p">:</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">logging_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WARNING</span>
@@ -1808,7 +1808,7 @@ set, and a warning is logged. This is how a state variable declared with a
 placeholder gets its real value:</p>
 <div class="language-lf-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">reactor</span><span class="w"> </span><span class="nc">Device</span> <span class="n">extends</span> <span class="n">FrostReactor</span> <span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c"># Supplied through parameters.peer in the configuration file.</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">state</span><span class="w"> </span><span class="nv">peer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">state</span><span class="w"> </span><span class="nv">peer</span> <span class="o">=</span> <span class="s2">""</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>See <a href="../../configuration/">Configuration</a> for the full file format.</p>

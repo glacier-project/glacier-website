@@ -1420,7 +1420,7 @@ development branches and may change.
         
   
   <span class="md-ellipsis">
-    FDL 2026 PhD School
+    FDL 2026 Summer School
     
   </span>
   
@@ -1725,7 +1725,7 @@ development branches and may change.
 <p>It is a <strong>mixin</strong>: it has no ports of its own. It owns the data model and the
 protocol manager, and leaves all communication to
 <a href="../frost-interface/"><code>FrostInterface</code></a>.</p>
-<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">reactor</span><span class="w"> </span><span class="nc">FrostNode</span><span class="p">(</span><span class="n">_data_model_path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">update_interval</span> <span class="o">=</span> <span class="mi">1</span><span class="w"> </span><span class="nb">s</span><span class="p">)</span> <span class="n">extends</span> <span class="n">FrostBase</span>
+<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">reactor</span><span class="w"> </span><span class="nc">FrostNode</span><span class="p">(</span><span class="n">_data_model_path</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">update_interval</span> <span class="o">=</span> <span class="mi">1</span><span class="w"> </span><span class="nb">s</span><span class="p">)</span> <span class="n">extends</span> <span class="n">FrostBase</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -1777,10 +1777,10 @@ exist, it logs an error and stops the program.</p>
 <h2 id="reaching-nodes">Reaching nodes<a class="headerlink" href="#reaching-nodes" title="Permanent link">&para;</a></h2>
 <div class="language-lf-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">reaction</span> <span class="p">(</span><span class="nb">startup</span><span class="p">)</span> <span class="p">{=</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="c1"># A variable node: read and write it through .value</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s2">&quot;Machine/temperature&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s2">"Machine/temperature"</span><span class="p">)</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="c1"># A method node: bind a Python callable to its callback</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s2">&quot;Machine/Square&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="s2">"Machine/Square"</span><span class="p">)</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">=}</span>
 </span></code></pre></div>
 <p>Holding onto the node object in a state variable, as above, is the usual

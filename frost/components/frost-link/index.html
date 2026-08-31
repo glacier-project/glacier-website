@@ -1420,7 +1420,7 @@ development branches and may change.
         
   
   <span class="md-ellipsis">
-    FDL 2026 PhD School
+    FDL 2026 Summer School
     
   </span>
   
@@ -1725,7 +1725,7 @@ it, and it forwards each message to whichever port its target sits behind.</p>
 <a href="../frost-interface/"><code>FrostInterface</code></a> with <a href="../frost-node/"><code>FrostNode</code></a> — it has
 channels <em>and</em> a data model, which it uses to publish what has registered.</p>
 <p>You instantiate it rather than extending it.</p>
-<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span> <span class="n">FrostLink</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;frost_link&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="language-lf-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span> <span class="n">FrostLink</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"frost_link"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">device_1</span><span class="o">.</span><span class="n">channel_out</span><span class="p">,</span> <span class="n">device_2</span><span class="o">.</span><span class="n">channel_out</span><span class="p">,</span> <span class="n">device_3</span><span class="o">.</span><span class="n">channel_out</span> <span class="o">-&gt;</span> <span class="n">link</span><span class="o">.</span><span class="n">channel_in</span> <span class="k">after</span> <span class="mi">0</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">link</span><span class="o">.</span><span class="n">channel_out</span> <span class="o">-&gt;</span> <span class="n">device_1</span><span class="o">.</span><span class="n">channel_in</span><span class="p">,</span> <span class="n">device_2</span><span class="o">.</span><span class="n">channel_in</span><span class="p">,</span> <span class="n">device_3</span><span class="o">.</span><span class="n">channel_in</span>
@@ -1758,24 +1758,24 @@ the same event seen from two sides.</p>
 <h2 id="the-links-data-model">The link's data model<a class="headerlink" href="#the-links-data-model" title="Permanent link">&para;</a></h2>
 <p><code>FrostLink</code> requires a data model with a specific shape, because it writes into
 it at startup:</p>
-<div class="language-yaml highlight"><span class="filename">link.yml</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;frost_link&quot;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">machine_category</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unknown&quot;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">machine_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unknown&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">machine_model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unknown&quot;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<div class="language-yaml highlight"><span class="filename">link.yml</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"frost_link"</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">machine_category</span><span class="p">:</span><span class="w"> </span><span class="s">"unknown"</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">machine_type</span><span class="p">:</span><span class="w"> </span><span class="s">"unknown"</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">machine_model</span><span class="p">:</span><span class="w"> </span><span class="s">"unknown"</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">""</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">root</span><span class="p">:</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="kt">!!FolderNode</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FrostLink&quot;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"FrostLink"</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">""</span>
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nt">children</span><span class="p">:</span>
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!!NumericalVariableNode</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#Nodes&quot;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">measure_unit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NoneMeasureUnits.NONE&quot;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"#Nodes"</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">""</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">measure_unit</span><span class="p">:</span><span class="w"> </span><span class="s">"NoneMeasureUnits.NONE"</span>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="nt">initial_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!!FolderNode</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NodeInfo&quot;</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"NodeInfo"</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">""</span>
 </span></code></pre></div>
 <p>Three paths must exist — <code>FrostLink</code>, <code>FrostLink/#Nodes</code> and
 <code>FrostLink/NodeInfo</code> — and the link looks them up by exactly those names. As
