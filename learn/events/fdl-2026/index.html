@@ -1850,7 +1850,7 @@ one package — download it and check your laptop <strong>before</strong> the se
 </tr>
 <tr>
 <td><strong>Room and time</strong></td>
-<td>Not yet published. The <a href="https://www.fdl-conference.com/phdschool.html">Summer School page</a> carries the programme as it is confirmed.</td>
+<td>16:00–18:00. The room is not yet published; the <a href="https://www.fdl-conference.com/phdschool.html">Summer School page</a> carries the programme as it is confirmed.</td>
 </tr>
 <tr>
 <td><strong>Bring</strong></td>
@@ -1897,8 +1897,8 @@ running when you open the workshop.</p>
 </div>
 <p>Only Docker is genuinely required. Visual Studio Code and its Dev Containers
 extension simply start the container for you, and if you would rather drive
-Docker yourself the package's <code>README.md</code> documents that route under <em>The same
-container without Visual Studio Code</em>:</p>
+Docker yourself the package's <code>docs/SETUP.md</code> documents that route under <em>The
+same container without Visual Studio Code</em>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>fdl2026-glacier<span class="w"> </span>-f<span class="w"> </span>.devcontainer/Dockerfile<span class="w"> </span>.
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">"</span>:/workspace<span class="w"> </span>-w<span class="w"> </span>/workspace<span class="w"> </span>fdl2026-glacier<span class="w"> </span>bash
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>bash<span class="w"> </span>scripts/container-setup.sh
@@ -1906,7 +1906,7 @@ container without Visual Studio Code</em>:</p>
 <p>Nothing else — no Python packages, no Java, no compiler, no Lingua Franca
 install. The container provides all of it, at the versions the session was
 tested with. On Windows, Docker Desktop plus the Dev Container is the supported
-route. If you would rather not use Docker at all, the <code>README.md</code> inside the
+route. If you would rather not use Docker at all, <code>docs/SETUP.md</code> inside the
 package documents a native Ubuntu 24.04 (or WSL) alternative, which you are then
 responsible for getting working.</p>
 <h3 id="the-setup-start-to-finish">The setup, start to finish<a class="headerlink" href="#the-setup-start-to-finish" title="Permanent link">&para;</a></h3>
@@ -1915,7 +1915,7 @@ responsible for getting working.</p>
 <li>
 <p><strong>Download the package.</strong>
     <a href="https://github.com/glacier-project/glacier-downloads/releases/download/fdl-2026/fdl2026-glacier-student.zip">fdl2026-glacier-student.zip</a>
-    — about 107 KB, because the toolchain arrives later, when the container is
+    — about 110 KB, because the toolchain arrives later, when the container is
     built.</p>
 </li>
 <li>
@@ -1940,7 +1940,7 @@ responsible for getting working.</p>
 <div class="language-powershell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">(</span><span class="nb">Get-FileHash</span> <span class="n">fdl2026-glacier-student</span><span class="p">.</span><span class="n">zip</span> <span class="n">-Algorithm</span> <span class="n">SHA256</span><span class="p">).</span><span class="n">Hash</span>
 </span></code></pre></div>
 <p>Compare the result, case-insensitively, with the published digest:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>f2fbb76aea6209efa1613bb763f7fa6071c5427fa6192994be5af92bccef4c9a
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1d81a62a8573c59d90e9a0e112696da57054cdd808f59a5ca5173b48972ccfea
 </span></code></pre></div>
 </div>
 </div>
