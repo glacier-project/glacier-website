@@ -1861,8 +1861,10 @@ one package — download it and check your laptop <strong>before</strong> the se
 </div>
 <p>You will work through five short exercises: state a machine's contract, model
 the machine, write a controller policy, compose the system, and validate a
-requirement against it. The package ships the Frost sources it uses, so there is
-nothing else to install and no repository to clone.</p>
+requirement against it. We close by running the whole thing against a model that
+inspects pixels instead, and finding out what your validation missed. The
+package ships the Frost sources it uses, so there is nothing else to install and
+no repository to clone.</p>
 <h2 id="prepare-before-the-session">Prepare before the session<a class="headerlink" href="#prepare-before-the-session" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Do this at home, not in the room</p>
@@ -1915,7 +1917,7 @@ responsible for getting working.</p>
 <li>
 <p><strong>Download the package.</strong>
     <a href="https://github.com/glacier-project/glacier-downloads/releases/download/fdl-2026/fdl2026-glacier-student.zip">fdl2026-glacier-student.zip</a>
-    — about 110 KB, because the toolchain arrives later, when the container is
+    — about 127 KB, because the toolchain arrives later, when the container is
     built.</p>
 </li>
 <li>
@@ -1940,7 +1942,7 @@ responsible for getting working.</p>
 <div class="language-powershell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">(</span><span class="nb">Get-FileHash</span> <span class="n">fdl2026-glacier-student</span><span class="p">.</span><span class="n">zip</span> <span class="n">-Algorithm</span> <span class="n">SHA256</span><span class="p">).</span><span class="n">Hash</span>
 </span></code></pre></div>
 <p>Compare the result, case-insensitively, with the published digest:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1d81a62a8573c59d90e9a0e112696da57054cdd808f59a5ca5173b48972ccfea
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>0a5d84653709e9278a6330ff9b7e9a8b8f3ff0cb6ca761a1449bbffd9620700e
 </span></code></pre></div>
 </div>
 </div>
